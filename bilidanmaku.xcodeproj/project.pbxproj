@@ -1,0 +1,296 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9BE1F0AF1E63B75A00BE595B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE1F0AE1E63B75A00BE595B /* AppDelegate.swift */; };
+		9BE1F0B11E63B75A00BE595B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE1F0B01E63B75A00BE595B /* ViewController.swift */; };
+		9BE1F0B31E63B75A00BE595B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9BE1F0B21E63B75A00BE595B /* Assets.xcassets */; };
+		9BE1F0B61E63B75A00BE595B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BE1F0B41E63B75A00BE595B /* Main.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		9BE1F0AB1E63B75A00BE595B /* bilidanmaku.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bilidanmaku.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9BE1F0AE1E63B75A00BE595B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		9BE1F0B01E63B75A00BE595B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		9BE1F0B21E63B75A00BE595B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9BE1F0B51E63B75A00BE595B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		9BE1F0B71E63B75A00BE595B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9BE1F0A81E63B75A00BE595B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9BE1F0A21E63B75900BE595B = {
+			isa = PBXGroup;
+			children = (
+				9BE1F0AD1E63B75A00BE595B /* bilidanmaku */,
+				9BE1F0AC1E63B75A00BE595B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		9BE1F0AC1E63B75A00BE595B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9BE1F0AB1E63B75A00BE595B /* bilidanmaku.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9BE1F0AD1E63B75A00BE595B /* bilidanmaku */ = {
+			isa = PBXGroup;
+			children = (
+				9BE1F0AE1E63B75A00BE595B /* AppDelegate.swift */,
+				9BE1F0B01E63B75A00BE595B /* ViewController.swift */,
+				9BE1F0B21E63B75A00BE595B /* Assets.xcassets */,
+				9BE1F0B41E63B75A00BE595B /* Main.storyboard */,
+				9BE1F0B71E63B75A00BE595B /* Info.plist */,
+			);
+			path = bilidanmaku;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9BE1F0AA1E63B75A00BE595B /* bilidanmaku */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9BE1F0BA1E63B75A00BE595B /* Build configuration list for PBXNativeTarget "bilidanmaku" */;
+			buildPhases = (
+				9BE1F0A71E63B75A00BE595B /* Sources */,
+				9BE1F0A81E63B75A00BE595B /* Frameworks */,
+				9BE1F0A91E63B75A00BE595B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = bilidanmaku;
+			productName = bilidanmaku;
+			productReference = 9BE1F0AB1E63B75A00BE595B /* bilidanmaku.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9BE1F0A31E63B75900BE595B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0820;
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = "Xudong Yang";
+				TargetAttributes = {
+					9BE1F0AA1E63B75A00BE595B = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = X393ZHKJNM;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 9BE1F0A61E63B75900BE595B /* Build configuration list for PBXProject "bilidanmaku" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 9BE1F0A21E63B75900BE595B;
+			productRefGroup = 9BE1F0AC1E63B75A00BE595B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9BE1F0AA1E63B75A00BE595B /* bilidanmaku */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9BE1F0A91E63B75A00BE595B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9BE1F0B31E63B75A00BE595B /* Assets.xcassets in Resources */,
+				9BE1F0B61E63B75A00BE595B /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9BE1F0A71E63B75A00BE595B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9BE1F0B11E63B75A00BE595B /* ViewController.swift in Sources */,
+				9BE1F0AF1E63B75A00BE595B /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		9BE1F0B41E63B75A00BE595B /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9BE1F0B51E63B75A00BE595B /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		9BE1F0B81E63B75A00BE595B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		9BE1F0B91E63B75A00BE595B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+			};
+			name = Release;
+		};
+		9BE1F0BB1E63B75A00BE595B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = X393ZHKJNM;
+				INFOPLIST_FILE = bilidanmaku/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.xudong.bilidanmaku;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		9BE1F0BC1E63B75A00BE595B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = X393ZHKJNM;
+				INFOPLIST_FILE = bilidanmaku/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.xudong.bilidanmaku;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9BE1F0A61E63B75900BE595B /* Build configuration list for PBXProject "bilidanmaku" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9BE1F0B81E63B75A00BE595B /* Debug */,
+				9BE1F0B91E63B75A00BE595B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9BE1F0BA1E63B75A00BE595B /* Build configuration list for PBXNativeTarget "bilidanmaku" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9BE1F0BB1E63B75A00BE595B /* Debug */,
+				9BE1F0BC1E63B75A00BE595B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9BE1F0A31E63B75900BE595B /* Project object */;
+}
