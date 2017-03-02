@@ -1,0 +1,2 @@
+github "Alamofire/Alamofire" "4.4.0"
+github "socketio/socket.io-client-swift" "v8.2.0"

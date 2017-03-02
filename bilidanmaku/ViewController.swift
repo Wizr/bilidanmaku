@@ -8,8 +8,16 @@
 
 import Cocoa
 
-class ViewController: NSViewController {
+class ViewController: NSViewController, DanmakuProtocol {
+    @IBOutlet weak var liveIdTextField: NSTextField!
+    
+    func log(type: LogType, text: String) {
+    }
 
+    @IBAction func onConnectClicked(_ sender: NSButton) {
+//        let self.liveIdTextField.stringValue
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

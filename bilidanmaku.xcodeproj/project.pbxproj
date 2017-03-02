@@ -7,13 +7,51 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9B16BDF71E644C8F002301C4 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9B16BDF41E644C8C002301C4 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		9B9137D71E684001008E8441 /* DanmakuProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B9137D61E684001008E8441 /* DanmakuProtocol.swift */; };
+		9B9137D91E684118008E8441 /* Danmaku.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B9137D81E684118008E8441 /* Danmaku.swift */; };
+		9B9137DB1E685004008E8441 /* LiveIdTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B9137DA1E685004008E8441 /* LiveIdTextField.swift */; };
+		9BD7AD741E64424100BC0D7F /* SocketIO.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9BD7AD711E64416000BC0D7F /* SocketIO.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		9BD7AD7A1E64430500BC0D7F /* SocketIO.framework.dSYM in Copy Files */ = {isa = PBXBuildFile; fileRef = 9BD7AD791E64430500BC0D7F /* SocketIO.framework.dSYM */; };
 		9BE1F0AF1E63B75A00BE595B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE1F0AE1E63B75A00BE595B /* AppDelegate.swift */; };
 		9BE1F0B11E63B75A00BE595B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE1F0B01E63B75A00BE595B /* ViewController.swift */; };
 		9BE1F0B31E63B75A00BE595B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9BE1F0B21E63B75A00BE595B /* Assets.xcassets */; };
 		9BE1F0B61E63B75A00BE595B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BE1F0B41E63B75A00BE595B /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		9BD7AD751E64424100BC0D7F /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				9BD7AD741E64424100BC0D7F /* SocketIO.framework in Embed Frameworks */,
+				9B16BDF71E644C8F002301C4 /* Alamofire.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9BD7AD761E64425C00BC0D7F /* Copy Files */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 16;
+			files = (
+				9BD7AD7A1E64430500BC0D7F /* SocketIO.framework.dSYM in Copy Files */,
+			);
+			name = "Copy Files";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		9B16BDF41E644C8C002301C4 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/Mac/Alamofire.framework; sourceTree = "<group>"; };
+		9B9137D61E684001008E8441 /* DanmakuProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DanmakuProtocol.swift; sourceTree = "<group>"; };
+		9B9137D81E684118008E8441 /* Danmaku.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Danmaku.swift; sourceTree = "<group>"; };
+		9B9137DA1E685004008E8441 /* LiveIdTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiveIdTextField.swift; sourceTree = "<group>"; };
+		9BD7AD711E64416000BC0D7F /* SocketIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SocketIO.framework; path = Carthage/Build/Mac/SocketIO.framework; sourceTree = "<group>"; };
+		9BD7AD791E64430500BC0D7F /* SocketIO.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = SocketIO.framework.dSYM; path = Carthage/Build/SocketIO.framework.dSYM; sourceTree = "<group>"; };
 		9BE1F0AB1E63B75A00BE595B /* bilidanmaku.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bilidanmaku.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BE1F0AE1E63B75A00BE595B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9BE1F0B01E63B75A00BE595B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -33,11 +71,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9BD7AD701E64416000BC0D7F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9B16BDF41E644C8C002301C4 /* Alamofire.framework */,
+				9BD7AD711E64416000BC0D7F /* SocketIO.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		9BE1F0A21E63B75900BE595B = {
 			isa = PBXGroup;
 			children = (
+				9BD7AD791E64430500BC0D7F /* SocketIO.framework.dSYM */,
 				9BE1F0AD1E63B75A00BE595B /* bilidanmaku */,
 				9BE1F0AC1E63B75A00BE595B /* Products */,
+				9BD7AD701E64416000BC0D7F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -52,11 +101,14 @@
 		9BE1F0AD1E63B75A00BE595B /* bilidanmaku */ = {
 			isa = PBXGroup;
 			children = (
+				9B9137D81E684118008E8441 /* Danmaku.swift */,
+				9B9137D61E684001008E8441 /* DanmakuProtocol.swift */,
 				9BE1F0AE1E63B75A00BE595B /* AppDelegate.swift */,
 				9BE1F0B01E63B75A00BE595B /* ViewController.swift */,
 				9BE1F0B21E63B75A00BE595B /* Assets.xcassets */,
 				9BE1F0B41E63B75A00BE595B /* Main.storyboard */,
 				9BE1F0B71E63B75A00BE595B /* Info.plist */,
+				9B9137DA1E685004008E8441 /* LiveIdTextField.swift */,
 			);
 			path = bilidanmaku;
 			sourceTree = "<group>";
@@ -71,6 +123,8 @@
 				9BE1F0A71E63B75A00BE595B /* Sources */,
 				9BE1F0A81E63B75A00BE595B /* Frameworks */,
 				9BE1F0A91E63B75A00BE595B /* Resources */,
+				9BD7AD751E64424100BC0D7F /* Embed Frameworks */,
+				9BD7AD761E64425C00BC0D7F /* Copy Files */,
 			);
 			buildRules = (
 			);
@@ -133,8 +187,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B9137DB1E685004008E8441 /* LiveIdTextField.swift in Sources */,
 				9BE1F0B11E63B75A00BE595B /* ViewController.swift in Sources */,
+				9B9137D91E684118008E8441 /* Danmaku.swift in Sources */,
 				9BE1F0AF1E63B75A00BE595B /* AppDelegate.swift in Sources */,
+				9B9137D71E684001008E8441 /* DanmakuProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -248,6 +305,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = X393ZHKJNM;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				INFOPLIST_FILE = bilidanmaku/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.xudong.bilidanmaku;
@@ -262,6 +323,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = X393ZHKJNM;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				INFOPLIST_FILE = bilidanmaku/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.xudong.bilidanmaku;
@@ -289,6 +354,7 @@
 				9BE1F0BC1E63B75A00BE595B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
