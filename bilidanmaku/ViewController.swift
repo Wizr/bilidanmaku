@@ -15,13 +15,16 @@ class ViewController: NSViewController, DanmakuProtocol {
     }
 
     @IBAction func onConnectClicked(_ sender: NSButton) {
-//        let self.liveIdTextField.stringValue
+        let liveId = Int(self.liveIdTextField.stringValue)!
+        debugPrint(liveId)
+        Danmaku(liveId: liveId, delegate: self).connectServer()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        self.liveIdTextField.formatter = IntegerOnlyFormatter()
     }
 
     override var representedObject: Any? {

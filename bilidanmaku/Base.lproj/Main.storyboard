@@ -93,11 +93,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="571" height="365"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <imageView hidden="YES" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4iv-SS-Hec">
-                                <rect key="frame" x="-220" y="-44" width="791" height="453"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" image="timg" id="grn-sS-O3V"/>
-                            </imageView>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rUY-M2-aBN">
                                 <rect key="frame" x="18" y="328" width="214" height="17"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="直接间地址：http://live.bilibili.com/" id="mHv-RH-zWA">
@@ -106,7 +101,7 @@
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UyD-6H-hKL" customClass="LiveIdTextField" customModule="bilidanmaku" customModuleProvider="target">
+                            <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UyD-6H-hKL">
                                 <rect key="frame" x="238" y="325" width="96" height="22"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="96" id="UxI-9T-ge8"/>
@@ -146,14 +141,14 @@
                                                 <scrollView horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QCl-Mn-IXt">
                                                     <rect key="frame" x="0.0" y="0.0" width="525" height="271"/>
                                                     <clipView key="contentView" id="Fwz-8y-LAH">
-                                                        <rect key="frame" x="1" y="1" width="508" height="269"/>
+                                                        <rect key="frame" x="1" y="1" width="523" height="269"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                         <subviews>
                                                             <textView importsGraphics="NO" usesFontPanel="YES" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="fAB-6s-EhX">
-                                                                <rect key="frame" x="0.0" y="0.0" width="508" height="269"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="523" height="269"/>
                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                                <size key="minSize" width="508" height="269"/>
+                                                                <size key="minSize" width="523" height="269"/>
                                                                 <size key="maxSize" width="525" height="10000000"/>
                                                                 <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                             </textView>
@@ -165,7 +160,7 @@
                                                         <autoresizingMask key="autoresizingMask"/>
                                                     </scroller>
                                                     <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="mfl-ju-4fc">
-                                                        <rect key="frame" x="509" y="1" width="15" height="269"/>
+                                                        <rect key="frame" x="508" y="1" width="16" height="269"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                     </scroller>
                                                 </scrollView>
@@ -186,24 +181,6 @@
                                     </tabViewItem>
                                 </tabViewItems>
                             </tabView>
-                            <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OAH-Jq-ARl">
-                                <rect key="frame" x="54" y="305" width="96" height="22"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <contentFilters>
-                                    <ciFilter name="CIGaussianBlur">
-                                        <configuration>
-                                            <null key="inputImage"/>
-                                            <real key="inputRadius" value="10"/>
-                                        </configuration>
-                                    </ciFilter>
-                                </contentFilters>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="s8m-lX-3s0">
-                                    <numberFormatter key="formatter" formatterBehavior="default10_4" numberStyle="decimal" minimumIntegerDigits="1" maximumIntegerDigits="2000000000" maximumFractionDigits="3" id="PAo-J7-TEF"/>
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
                         </subviews>
                         <constraints>
                             <constraint firstItem="YNB-WN-RcJ" firstAttribute="top" secondItem="rUY-M2-aBN" secondAttribute="bottom" constant="15" id="6wc-9a-TmO"/>
@@ -229,7 +206,4 @@
             <point key="canvasLocation" x="74.5" y="730.5"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="timg" width="1422" height="800"/>
-    </resources>
 </document>
