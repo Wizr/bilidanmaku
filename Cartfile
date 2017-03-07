@@ -1,5 +1,5 @@
-# socket.io
-github "socketio/socket.io-client-swift" ~> 8.2.0
 # Alamofire
 github "Alamofire/Alamofire" ~> 4.4
+# socket
+github "IBM-Swift/BlueSocket"
 

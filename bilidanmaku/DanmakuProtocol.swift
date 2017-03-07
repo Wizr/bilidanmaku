@@ -6,7 +6,9 @@
 //  Copyright © 2017 Xudong Yang. All rights reserved.
 //
 
-protocol DanmakuProtocol {
+import Cocoa
+
+protocol DanmakuProtocol: NSObjectProtocol {
 //    func OnGetRoomBasicInfo(roomId: String, title: String, hasError: Bool)
-    func log(type: LogType, text: String)
+    func handleMsg(msg: Message)
 }

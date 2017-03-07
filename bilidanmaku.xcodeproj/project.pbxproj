@@ -8,61 +8,69 @@
 
 /* Begin PBXBuildFile section */
 		9B9137D71E684001008E8441 /* DanmakuProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B9137D61E684001008E8441 /* DanmakuProtocol.swift */; };
-		9B9137D91E684118008E8441 /* Danmaku.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B9137D81E684118008E8441 /* Danmaku.swift */; };
+		9B9137D91E684118008E8441 /* DanmakuClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B9137D81E684118008E8441 /* DanmakuClient.swift */; };
 		9B9137DB1E685004008E8441 /* IntegerOnlyFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B9137DA1E685004008E8441 /* IntegerOnlyFormatter.swift */; };
+		9BC449471E69391C00A526CF /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BC449451E69391C00A526CF /* Alamofire.framework */; };
+		9BC449481E69391C00A526CF /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9BC449451E69391C00A526CF /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		9BC4494D1E69393000A526CF /* Alamofire.framework.dSYM in Copy Files */ = {isa = PBXBuildFile; fileRef = 9BC4494B1E69393000A526CF /* Alamofire.framework.dSYM */; };
+		9BC449501E69538E00A526CF /* Socket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BC4494F1E69538E00A526CF /* Socket.framework */; };
+		9BC449511E69538E00A526CF /* Socket.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9BC4494F1E69538E00A526CF /* Socket.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		9BC449531E6953AA00A526CF /* Socket.framework.dSYM in Copy Files */ = {isa = PBXBuildFile; fileRef = 9BC449521E6953AA00A526CF /* Socket.framework.dSYM */; };
+		9BC449551E6A6C2700A526CF /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC449541E6A6C2700A526CF /* Channel.swift */; };
+		9BC530E61E6D0ABB00C6787E /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC530E51E6D0ABB00C6787E /* Message.swift */; };
+		9BC530E81E6D5E5B00C6787E /* DanmakuWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC530E71E6D5E5B00C6787E /* DanmakuWindowController.swift */; };
+		9BC530EA1E6E63FF00C6787E /* DanmakuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC530E91E6E63FF00C6787E /* DanmakuViewController.swift */; };
 		9BE1F0AF1E63B75A00BE595B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE1F0AE1E63B75A00BE595B /* AppDelegate.swift */; };
 		9BE1F0B11E63B75A00BE595B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE1F0B01E63B75A00BE595B /* ViewController.swift */; };
 		9BE1F0B31E63B75A00BE595B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9BE1F0B21E63B75A00BE595B /* Assets.xcassets */; };
 		9BE1F0B61E63B75A00BE595B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BE1F0B41E63B75A00BE595B /* Main.storyboard */; };
-		FBA6F18B1E686074006AAAA9 /* Alamofire.framework.dSYM in Copy Files */ = {isa = PBXBuildFile; fileRef = FBA6F1891E686074006AAAA9 /* Alamofire.framework.dSYM */; };
-		FBA6F18C1E686074006AAAA9 /* SocketIO.framework.dSYM in Copy Files */ = {isa = PBXBuildFile; fileRef = FBA6F18A1E686074006AAAA9 /* SocketIO.framework.dSYM */; };
-		FBA6F18F1E6860A0006AAAA9 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBA6F18D1E6860A0006AAAA9 /* Alamofire.framework */; };
-		FBA6F1901E6860A0006AAAA9 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FBA6F18D1E6860A0006AAAA9 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		FBA6F1911E6860A0006AAAA9 /* SocketIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBA6F18E1E6860A0006AAAA9 /* SocketIO.framework */; };
-		FBA6F1921E6860A0006AAAA9 /* SocketIO.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FBA6F18E1E6860A0006AAAA9 /* SocketIO.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		9BC449441E69390300A526CF /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				9BC449481E69391C00A526CF /* Alamofire.framework in Embed Frameworks */,
+				9BC449511E69538E00A526CF /* Socket.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		9BD7AD761E64425C00BC0D7F /* Copy Files */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 16;
 			files = (
-				FBA6F18B1E686074006AAAA9 /* Alamofire.framework.dSYM in Copy Files */,
-				FBA6F18C1E686074006AAAA9 /* SocketIO.framework.dSYM in Copy Files */,
+				9BC4494D1E69393000A526CF /* Alamofire.framework.dSYM in Copy Files */,
+				9BC449531E6953AA00A526CF /* Socket.framework.dSYM in Copy Files */,
 			);
 			name = "Copy Files";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		FBA6F1841E686015006AAAA9 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				FBA6F1901E6860A0006AAAA9 /* Alamofire.framework in Embed Frameworks */,
-				FBA6F1921E6860A0006AAAA9 /* SocketIO.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		9B9137D61E684001008E8441 /* DanmakuProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DanmakuProtocol.swift; sourceTree = "<group>"; };
-		9B9137D81E684118008E8441 /* Danmaku.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Danmaku.swift; sourceTree = "<group>"; };
+		9B9137D81E684118008E8441 /* DanmakuClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DanmakuClient.swift; sourceTree = "<group>"; };
 		9B9137DA1E685004008E8441 /* IntegerOnlyFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntegerOnlyFormatter.swift; sourceTree = "<group>"; };
+		9BC449451E69391C00A526CF /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/Mac/Alamofire.framework; sourceTree = "<group>"; };
+		9BC4494B1E69393000A526CF /* Alamofire.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = Alamofire.framework.dSYM; path = Carthage/Build/Mac/Alamofire.framework.dSYM; sourceTree = "<group>"; };
+		9BC4494F1E69538E00A526CF /* Socket.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Socket.framework; path = Carthage/Build/Mac/Socket.framework; sourceTree = "<group>"; };
+		9BC449521E6953AA00A526CF /* Socket.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = Socket.framework.dSYM; path = Carthage/Build/Mac/Socket.framework.dSYM; sourceTree = "<group>"; };
+		9BC449541E6A6C2700A526CF /* Channel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
+		9BC530E51E6D0ABB00C6787E /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		9BC530E71E6D5E5B00C6787E /* DanmakuWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DanmakuWindowController.swift; sourceTree = "<group>"; };
+		9BC530E91E6E63FF00C6787E /* DanmakuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DanmakuViewController.swift; sourceTree = "<group>"; };
 		9BE1F0AB1E63B75A00BE595B /* bilidanmaku.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bilidanmaku.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BE1F0AE1E63B75A00BE595B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9BE1F0B01E63B75A00BE595B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		9BE1F0B21E63B75A00BE595B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9BE1F0B51E63B75A00BE595B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9BE1F0B71E63B75A00BE595B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FBA6F1891E686074006AAAA9 /* Alamofire.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = Alamofire.framework.dSYM; path = Carthage/Build/Mac/Alamofire.framework.dSYM; sourceTree = "<group>"; };
-		FBA6F18A1E686074006AAAA9 /* SocketIO.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = SocketIO.framework.dSYM; path = Carthage/Build/Mac/SocketIO.framework.dSYM; sourceTree = "<group>"; };
-		FBA6F18D1E6860A0006AAAA9 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/Mac/Alamofire.framework; sourceTree = "<group>"; };
-		FBA6F18E1E6860A0006AAAA9 /* SocketIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SocketIO.framework; path = Carthage/Build/Mac/SocketIO.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,8 +78,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FBA6F18F1E6860A0006AAAA9 /* Alamofire.framework in Frameworks */,
-				FBA6F1911E6860A0006AAAA9 /* SocketIO.framework in Frameworks */,
+				9BC449471E69391C00A526CF /* Alamofire.framework in Frameworks */,
+				9BC449501E69538E00A526CF /* Socket.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,10 +89,10 @@
 		9BE1F0A21E63B75900BE595B = {
 			isa = PBXGroup;
 			children = (
-				FBA6F18D1E6860A0006AAAA9 /* Alamofire.framework */,
-				FBA6F18E1E6860A0006AAAA9 /* SocketIO.framework */,
-				FBA6F1891E686074006AAAA9 /* Alamofire.framework.dSYM */,
-				FBA6F18A1E686074006AAAA9 /* SocketIO.framework.dSYM */,
+				9BC449451E69391C00A526CF /* Alamofire.framework */,
+				9BC4494F1E69538E00A526CF /* Socket.framework */,
+				9BC4494B1E69393000A526CF /* Alamofire.framework.dSYM */,
+				9BC449521E6953AA00A526CF /* Socket.framework.dSYM */,
 				9BE1F0AD1E63B75A00BE595B /* bilidanmaku */,
 				9BE1F0AC1E63B75A00BE595B /* Products */,
 			);
@@ -101,14 +109,18 @@
 		9BE1F0AD1E63B75A00BE595B /* bilidanmaku */ = {
 			isa = PBXGroup;
 			children = (
-				9B9137D81E684118008E8441 /* Danmaku.swift */,
+				9BC530E51E6D0ABB00C6787E /* Message.swift */,
+				9B9137D81E684118008E8441 /* DanmakuClient.swift */,
 				9B9137D61E684001008E8441 /* DanmakuProtocol.swift */,
 				9BE1F0AE1E63B75A00BE595B /* AppDelegate.swift */,
 				9BE1F0B01E63B75A00BE595B /* ViewController.swift */,
+				9BC530E71E6D5E5B00C6787E /* DanmakuWindowController.swift */,
+				9BC530E91E6E63FF00C6787E /* DanmakuViewController.swift */,
 				9BE1F0B21E63B75A00BE595B /* Assets.xcassets */,
 				9BE1F0B41E63B75A00BE595B /* Main.storyboard */,
 				9BE1F0B71E63B75A00BE595B /* Info.plist */,
 				9B9137DA1E685004008E8441 /* IntegerOnlyFormatter.swift */,
+				9BC449541E6A6C2700A526CF /* Channel.swift */,
 			);
 			path = bilidanmaku;
 			sourceTree = "<group>";
@@ -124,7 +136,7 @@
 				9BE1F0A81E63B75A00BE595B /* Frameworks */,
 				9BE1F0A91E63B75A00BE595B /* Resources */,
 				9BD7AD761E64425C00BC0D7F /* Copy Files */,
-				FBA6F1841E686015006AAAA9 /* Embed Frameworks */,
+				9BC449441E69390300A526CF /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -188,10 +200,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				9B9137DB1E685004008E8441 /* IntegerOnlyFormatter.swift in Sources */,
+				9BC449551E6A6C2700A526CF /* Channel.swift in Sources */,
 				9BE1F0B11E63B75A00BE595B /* ViewController.swift in Sources */,
-				9B9137D91E684118008E8441 /* Danmaku.swift in Sources */,
+				9BC530EA1E6E63FF00C6787E /* DanmakuViewController.swift in Sources */,
+				9B9137D91E684118008E8441 /* DanmakuClient.swift in Sources */,
 				9BE1F0AF1E63B75A00BE595B /* AppDelegate.swift in Sources */,
+				9BC530E81E6D5E5B00C6787E /* DanmakuWindowController.swift in Sources */,
 				9B9137D71E684001008E8441 /* DanmakuProtocol.swift in Sources */,
+				9BC530E61E6D0ABB00C6787E /* Message.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -311,6 +327,7 @@
 				);
 				INFOPLIST_FILE = bilidanmaku/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				PRODUCT_BUNDLE_IDENTIFIER = com.xudong.bilidanmaku;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
@@ -329,6 +346,7 @@
 				);
 				INFOPLIST_FILE = bilidanmaku/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				PRODUCT_BUNDLE_IDENTIFIER = com.xudong.bilidanmaku;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
