@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9B42B1CF1E72E9F70084DD28 /* ConfigManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B42B1CE1E72E9F70084DD28 /* ConfigManager.swift */; };
+		9B42B1D11E72EFCF0084DD28 /* +Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B42B1D01E72EFCF0084DD28 /* +Extensions.swift */; };
 		9B9137D71E684001008E8441 /* DanmakuProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B9137D61E684001008E8441 /* DanmakuProtocol.swift */; };
 		9B9137D91E684118008E8441 /* DanmakuClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B9137D81E684118008E8441 /* DanmakuClient.swift */; };
 		9B9137DB1E685004008E8441 /* IntegerOnlyFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B9137DA1E685004008E8441 /* IntegerOnlyFormatter.swift */; };
@@ -54,6 +56,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		9B42B1CE1E72E9F70084DD28 /* ConfigManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigManager.swift; sourceTree = "<group>"; };
+		9B42B1D01E72EFCF0084DD28 /* +Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "+Extensions.swift"; sourceTree = "<group>"; };
 		9B9137D61E684001008E8441 /* DanmakuProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DanmakuProtocol.swift; sourceTree = "<group>"; };
 		9B9137D81E684118008E8441 /* DanmakuClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DanmakuClient.swift; sourceTree = "<group>"; };
 		9B9137DA1E685004008E8441 /* IntegerOnlyFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntegerOnlyFormatter.swift; sourceTree = "<group>"; };
@@ -114,13 +118,15 @@
 				9B9137D61E684001008E8441 /* DanmakuProtocol.swift */,
 				9BE1F0AE1E63B75A00BE595B /* AppDelegate.swift */,
 				9BE1F0B01E63B75A00BE595B /* ViewController.swift */,
-				9BC530E71E6D5E5B00C6787E /* DanmakuWindowController.swift */,
 				9BC530E91E6E63FF00C6787E /* DanmakuViewController.swift */,
 				9BE1F0B21E63B75A00BE595B /* Assets.xcassets */,
 				9BE1F0B41E63B75A00BE595B /* Main.storyboard */,
 				9BE1F0B71E63B75A00BE595B /* Info.plist */,
 				9B9137DA1E685004008E8441 /* IntegerOnlyFormatter.swift */,
 				9BC449541E6A6C2700A526CF /* Channel.swift */,
+				9BC530E71E6D5E5B00C6787E /* DanmakuWindowController.swift */,
+				9B42B1CE1E72E9F70084DD28 /* ConfigManager.swift */,
+				9B42B1D01E72EFCF0084DD28 /* +Extensions.swift */,
 			);
 			path = bilidanmaku;
 			sourceTree = "<group>";
@@ -202,11 +208,13 @@
 				9B9137DB1E685004008E8441 /* IntegerOnlyFormatter.swift in Sources */,
 				9BC449551E6A6C2700A526CF /* Channel.swift in Sources */,
 				9BE1F0B11E63B75A00BE595B /* ViewController.swift in Sources */,
+				9B42B1CF1E72E9F70084DD28 /* ConfigManager.swift in Sources */,
 				9BC530EA1E6E63FF00C6787E /* DanmakuViewController.swift in Sources */,
 				9B9137D91E684118008E8441 /* DanmakuClient.swift in Sources */,
 				9BE1F0AF1E63B75A00BE595B /* AppDelegate.swift in Sources */,
 				9BC530E81E6D5E5B00C6787E /* DanmakuWindowController.swift in Sources */,
 				9B9137D71E684001008E8441 /* DanmakuProtocol.swift in Sources */,
+				9B42B1D11E72EFCF0084DD28 /* +Extensions.swift in Sources */,
 				9BC530E61E6D0ABB00C6787E /* Message.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

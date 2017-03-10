@@ -14,9 +14,10 @@ class ViewController: NSViewController, DanmakuProtocol {
     @IBOutlet weak var btnDisconnect: NSButton!
     private var danmakuClient: DanmakuClient?
     private var danmakuWindow: DanmakuWindowController?
+    private var danmakuView: DanmakuViewController?
 
     @IBAction func onConnectClicked(_ sender: NSButton) {
-        self.connectServer()
+        self.onConnect()
     }
     
     @IBAction func onDisconnectClicked(_ sender: NSButton) {
@@ -24,7 +25,7 @@ class ViewController: NSViewController, DanmakuProtocol {
     }
     
     @IBAction func onEndEditingLiveId(_ sender: Any) {
-        self.connectServer()
+        self.onConnect()
     }
     
     private func onDisconnect() {
@@ -35,20 +36,21 @@ class ViewController: NSViewController, DanmakuProtocol {
         self.btnDisconnect.isEnabled = false
     }
     
-    private func connectServer() {
+    private func onConnect() {
         let liveIdStr = self.textFieldLiveId.stringValue
-        guard liveIdStr.characters.count > 0  else {
-            return
-        }
-        guard let liveId = Int(liveIdStr) else {
-            return
+        guard liveIdStr.characters.count > 0,
+            let liveId = Int(liveIdStr)
+            else {
+                return
         }
         debugPrint(liveId)
-        self.danmakuClient = DanmakuClient(liveId: liveId, delegate: self)
-        self.danmakuClient!.connectServer()
+        
         self.textFieldLiveId.isEnabled = false
         self.btnConnect.isEnabled = false
         self.btnDisconnect.isEnabled = true
+
+        self.danmakuClient = DanmakuClient(liveId: liveId, delegate: self)
+        self.danmakuClient!.connectServer()
     }
     
     
@@ -61,6 +63,24 @@ class ViewController: NSViewController, DanmakuProtocol {
         
         self.danmakuWindow = self.storyboard?.instantiateController(withIdentifier: "DanmakuWindow") as? DanmakuWindowController
         self.danmakuWindow?.showWindow(self)
+        self.danmakuView = self.danmakuWindow?.contentViewController as? DanmakuViewController
+        
+        
+        let fontSize: CGFloat = 15
+        let font = NSFontManager.shared().font(withFamily: "Heiti SC",
+                                               traits: NSFontTraitMask.boldFontMask,
+                                               weight: 0,
+                                               size: fontSize) ?? NSFont.systemFont(ofSize: fontSize)
+        let attributes: [String: Any] = [NSForegroundColorAttributeName: NSColor.white,
+                                         NSFontAttributeName: font,
+                                         //                                         NSParagraphStyleAttributeName: paragraphStyle
+        ]
+        let str = "NSAttributedString"
+        let attrStr = NSAttributedString(string: str, attributes: attributes)
+//        for _ in 1..<64 {
+//            self.danmakuView?.appendDanmakuItem(string: attrStr)
+//        }
+//        self.danmakuView?.appendDanmakuItem(string: attrStr)
     }
 
     override var representedObject: Any? {
@@ -71,6 +91,18 @@ class ViewController: NSViewController, DanmakuProtocol {
 
     // DanmakuProtocol
     func handleMsg(msg: Message) {
+        let fontSize: CGFloat = 15
+        let font = NSFontManager.shared().font(withFamily: "Heiti SC",
+                                               traits: NSFontTraitMask.boldFontMask,
+                                               weight: 0,
+                                               size: fontSize) ?? NSFont.systemFont(ofSize: fontSize)
+        let attrNormal: [String: Any] = [NSForegroundColorAttributeName: NSColor(red:1, green:1, blue:1, alpha:1),
+                                         NSFontAttributeName: font]
+        let attrGift: [String: Any] = [NSForegroundColorAttributeName: NSColor(red:1, green:0.709, blue:0.134, alpha:1),
+                                         NSFontAttributeName: font]
+        let attrUser: [String: Any] = [NSForegroundColorAttributeName: NSColor(red:0.31, green:0.757, blue:0.914, alpha:1),
+                                       NSFontAttributeName: font]
+        
         switch msg.type {
         case .MSG_ROOM_ID(let roomId):
             debugPrint("房号: ", roomId)
@@ -78,8 +110,20 @@ class ViewController: NSViewController, DanmakuProtocol {
             debugPrint("标题: ", title)
         case .MSG_DANMU_MSG(let danmu):
             debugPrint("消息：", danmu, msg.uname, msg.isadmin, msg.vip)
+            let userStr = NSAttributedString(string: "\(msg.uname)：", attributes: attrUser)
+            let msgStr = NSAttributedString(string: danmu, attributes: attrNormal)
+            let str = NSMutableAttributedString()
+            str.append(userStr)
+            str.append(msgStr)
+            self.danmakuView?.appendDanmakuItem(string: str)
         case .MSG_GIFT(let giftName):
             debugPrint("礼物：", giftName, msg.uname, msg.isadmin, msg.vip)
+            let giftStr = NSAttributedString(string: "礼物：", attributes: attrGift)
+            let msgStr = NSAttributedString(string: "\(giftName)", attributes: attrNormal)
+            let str = NSMutableAttributedString()
+            str.append(giftStr)
+            str.append(msgStr)
+            self.danmakuView?.appendDanmakuItem(string: str)
         case .MSG_USER_NUM(let userNum):
             debugPrint("人数：", userNum)
         case .MSG_WELCOME:
