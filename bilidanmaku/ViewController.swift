@@ -102,6 +102,10 @@ class ViewController: NSViewController, DanmakuProtocol {
                                          NSFontAttributeName: font]
         let attrUser: [String: Any] = [NSForegroundColorAttributeName: NSColor(red:0.31, green:0.757, blue:0.914, alpha:1),
                                        NSFontAttributeName: font]
+        let attrWelcome: [String: Any] = [NSForegroundColorAttributeName: NSColor(red:1, green:0.426, blue:0.627, alpha:1),
+                                       NSFontAttributeName: font]
+        let attrAdmin: [String: Any] = [NSForegroundColorAttributeName: NSColor(red:0.708, green:0.59, blue:1, alpha:1),
+                                        NSFontAttributeName: font]
         
         switch msg.type {
         case .MSG_ROOM_ID(let roomId):
@@ -109,25 +113,50 @@ class ViewController: NSViewController, DanmakuProtocol {
         case .MSG_ROOM_TITLE(let title):
             debugPrint("标题: ", title)
         case .MSG_DANMU_MSG(let danmu):
-            debugPrint("消息：", danmu, msg.uname, msg.isadmin, msg.vip)
-            let userStr = NSAttributedString(string: "\(msg.uname)：", attributes: attrUser)
+            var userStr: NSAttributedString
+            if msg.isadmin {
+                userStr = NSAttributedString(string: "\(msg.uname)：", attributes: attrAdmin)
+            } else {
+                userStr = NSAttributedString(string: "\(msg.uname)：", attributes: attrUser)
+            }
+            
             let msgStr = NSAttributedString(string: danmu, attributes: attrNormal)
+            
             let str = NSMutableAttributedString()
             str.append(userStr)
             str.append(msgStr)
             self.danmakuView?.appendDanmakuItem(string: str)
         case .MSG_GIFT(let giftName):
-            debugPrint("礼物：", giftName, msg.uname, msg.isadmin, msg.vip)
             let giftStr = NSAttributedString(string: "礼物：", attributes: attrGift)
-            let msgStr = NSAttributedString(string: "\(giftName)", attributes: attrNormal)
+            
+            var userStr: NSAttributedString
+            if msg.isadmin {
+                userStr = NSAttributedString(string: "\(msg.uname)：", attributes: attrAdmin)
+            } else {
+                userStr = NSAttributedString(string: "\(msg.uname)：", attributes: attrUser)
+            }
+            
+            var numStr = ""
+            if msg.num > 1 {
+                numStr = " x\(msg.num)"
+            }
+            let msgStr = NSMutableAttributedString(string: "\(giftName)\(numStr)", attributes: attrNormal)
+            
             let str = NSMutableAttributedString()
             str.append(giftStr)
+            str.append(userStr)
             str.append(msgStr)
             self.danmakuView?.appendDanmakuItem(string: str)
         case .MSG_USER_NUM(let userNum):
             debugPrint("人数：", userNum)
         case .MSG_WELCOME:
-            debugPrint("欢迎：", msg.uname)
+            let welcStr = NSAttributedString(string: "欢迎：", attributes: attrWelcome)
+            let msgStr = NSAttributedString(string: "\(msg.uname)", attributes: attrNormal)
+            
+            let str = NSMutableAttributedString()
+            str.append(welcStr)
+            str.append(msgStr)
+            self.danmakuView?.appendDanmakuItem(string: str)
         case .MSG_UNKNOWN_JSON_MSG(let cmd):
             debugPrint("未知：", cmd)
         default:

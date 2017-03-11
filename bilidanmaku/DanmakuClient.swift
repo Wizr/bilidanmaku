@@ -130,11 +130,12 @@ class DanmakuClient: NSObject {
                         } else if jsonCmdTypeUpper == "SEND_GIFT" {
                             guard let jsonData = jsonObject["data"] as? [String: Any],
                                 let giftName = jsonData["giftName"] as? String,
-                                let uname = jsonData["uname"] as? String
+                                let uname = jsonData["uname"] as? String,
+                                let num = jsonData["num"] as? Int
                                 else {
                                     continue
                             }
-                            let msg = Message(type: .MSG_GIFT(giftName), uname: uname)
+                            let msg = Message(type: .MSG_GIFT(giftName), uname: uname, num: num)
                             self.delegate.handleMsg(msg: msg)
                         } else if jsonCmdTypeUpper == "WELCOME" {
                             guard let jsonData = jsonObject["data"] as? [String: Any],

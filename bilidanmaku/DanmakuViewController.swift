@@ -110,7 +110,7 @@ class DanmakuItem: CALayer, CAAnimationDelegate {
         // create inner(background) layer
         let caInner = CALayer()
         caInner.frame = NSRect(x: ds.marginInnerH, y: ds.marginInnerV, width: ds.innerWidth(), height: ds.innerHeight(textHeight: height))
-        caInner.backgroundColor = CGColor(gray: 0, alpha: 0.5)
+        caInner.backgroundColor = CGColor(gray: 0, alpha: 0.6)
         caInner.cornerRadius = min(ds.marginTextH, ds.marginTextV).toCGFloat()
         
         // create wrapper layer
