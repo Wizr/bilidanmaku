@@ -14,7 +14,6 @@ class DanmakuViewController: NSViewController, CAAnimationDelegate {
     @IBOutlet weak var userNumTxtFld: NSTextField!
     @IBOutlet weak var giftNumTxtFld: NSTextField!
     
-    private var sema: DispatchSemaphore?
     private var dispatchQueue: DispatchQueue?
     private let width: Double = 250
     private var contentLayer: CALayer?
@@ -39,7 +38,6 @@ class DanmakuViewController: NSViewController, CAAnimationDelegate {
         
         self.contentLayer = cntLayer
         self.dispatchQueue = DispatchQueue(label: "danmakuScene")
-        self.sema = DispatchSemaphore(value: 1)
         self.userNumTxtFld.stringValue = String(self.numUser)
         self.giftNumTxtFld.stringValue = String(self.numGift)
     }
@@ -60,11 +58,8 @@ class DanmakuViewController: NSViewController, CAAnimationDelegate {
     
     public func appendDanmakuItem(string: NSAttributedString) {
         DispatchQueue.global().async {
-            self.dispatchQueue?.sync() {
-                self.sema?.wait()
-                DispatchQueue.main.sync {
-                    self.doAppendDanmakuItem(string: string)
-                }
+            DispatchQueue.main.sync {
+                self.doAppendDanmakuItem(string: string)
             }
         }
     }
@@ -84,7 +79,6 @@ class DanmakuViewController: NSViewController, CAAnimationDelegate {
         
         self.contentLayer?.add(anim, forKey: nil)
         self.height += height
-        self.sema?.signal()
     }
 }
 

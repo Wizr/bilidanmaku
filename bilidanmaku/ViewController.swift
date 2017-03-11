@@ -65,22 +65,7 @@ class ViewController: NSViewController, DanmakuProtocol {
         self.danmakuWindow?.showWindow(self)
         self.danmakuView = self.danmakuWindow?.contentViewController as? DanmakuViewController
         
-        
-        let fontSize: CGFloat = 15
-        let font = NSFontManager.shared().font(withFamily: "Heiti SC",
-                                               traits: NSFontTraitMask.boldFontMask,
-                                               weight: 0,
-                                               size: fontSize) ?? NSFont.systemFont(ofSize: fontSize)
-        let attributes: [String: Any] = [NSForegroundColorAttributeName: NSColor.white,
-                                         NSFontAttributeName: font,
-                                         //                                         NSParagraphStyleAttributeName: paragraphStyle
-        ]
-        let str = "NSAttributedString"
-        let attrStr = NSAttributedString(string: str, attributes: attributes)
-//        for _ in 1..<63 {
-//            self.danmakuView?.appendDanmakuItem(string: attrStr)
-//        }
-//        self.danmakuView?.appendDanmakuItem(string: attrStr)
+        // FIX: 64 danmaku at once
     }
 
     override var representedObject: Any? {
