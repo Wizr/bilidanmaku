@@ -15,7 +15,7 @@ class DanmakuViewController: NSViewController, CAAnimationDelegate {
     private var rootLayer: CALayer {
         return self.view.layer!
     }
-    private var l: CALayer?
+    private var contentLayer: CALayer?
     private var height: CGFloat = 0
     
     public func initialize() {
@@ -25,27 +25,14 @@ class DanmakuViewController: NSViewController, CAAnimationDelegate {
         
         layer.isGeometryFlipped = true
         
-        let l = CALayer()
-        layer.addSublayer(l)
-        l.frame.origin.y = layer.frame.size.height
-        self.l = l
+        let cntLayer = CALayer()
+        layer.addSublayer(cntLayer)
+        cntLayer.frame.origin.y = layer.frame.size.height
+        self.contentLayer = cntLayer
         
         
         self.dispatchQueue = DispatchQueue(label: "danmakuScene")
         self.sema = DispatchSemaphore(value: 1)
-    }
-    
-    // to remove
-    private func heightFor(string: NSAttributedString, width: Int, font: NSFont) -> CGFloat {
-        let textStorage = NSTextStorage(attributedString: string)
-        let layoutManager = NSLayoutManager()
-        let textContainer = NSTextContainer(size: NSSize(width: 250, height: Int.max))
-        
-        textStorage.addLayoutManager(layoutManager)
-        layoutManager.addTextContainer(textContainer)
-        
-        layoutManager.glyphRange(for: textContainer)
-        return layoutManager.usedRect(for: textContainer).size.height
     }
     
     public func appendDanmakuItem(string: NSAttributedString) {
@@ -63,21 +50,11 @@ class DanmakuViewController: NSViewController, CAAnimationDelegate {
     }
     
     @objc public func doAppendDanmakuItem(string: NSAttributedString) {
-//        self.sema?.wait()
-        debugPrint("NSRunLoop")
-        let layer = DanmakuItem(string: string, showTime: 3)
+        let layer = DanmakuItem(string: string, showTime: 7)
         let height = layer.frame.size.height
-        layer.frame.origin.y = self.height // rootLayer.frame.size.height - self.l!.frame.origin.y
+        layer.frame.origin.y = self.height
 
-        debugPrint(self.l!.frame)
-        self.l?.addSublayer(layer)
-        debugPrint(self.l!.frame)
-        debugPrint(layer.frame)
-        CATransaction.begin()
-        CATransaction.setCompletionBlock {
-//            debugPrint("end", self.l!.presentation()!.frame)
-//            self.sema?.signal()
-        }
+        self.contentLayer?.addSublayer(layer)
         
         let anim = CABasicAnimation(keyPath: "position.y")
         anim.duration = 1
@@ -85,28 +62,36 @@ class DanmakuViewController: NSViewController, CAAnimationDelegate {
         anim.isRemovedOnCompletion = false
         anim.fillMode = kCAFillModeForwards
         
-        self.l?.add(anim, forKey: nil)
-//        rootLayer.sublayers?.forEach {
-//            layer in
-//            layer.add(anim, forKey: nil)
-//        }
-        CATransaction.commit()
+        self.contentLayer?.add(anim, forKey: nil)
         self.height += height
         self.sema?.signal()
-
-//        rootLayer.setNeedsDisplay()
-//        rootLayer.setNeedsLayout()
     }
 }
 
-class DanmakuItem: CALayer {
-    init(string: NSAttributedString, showTime: Int) {
+class DanmakuItem: CALayer, CAAnimationDelegate {
+    init(string: NSAttributedString, showTime: Double) {
         super.init()
         createSubLayer(string: string)
+        Timer.scheduledTimer(timeInterval: showTime, target: self, selector: #selector(destroySelf), userInfo: nil, repeats: false)
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    @objc private func destroySelf() {
+        let anim = CABasicAnimation(keyPath: "opacity")
+        anim.duration = 1
+        anim.toValue = 0
+        anim.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
+        anim.isRemovedOnCompletion = false
+        anim.fillMode = kCAFillModeForwards
+        anim.delegate = self
+        self.add(anim, forKey: nil)
+    }
+    
+    func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
+        self.removeFromSuperlayer()
     }
     
     private func createSubLayer(string: NSAttributedString) {

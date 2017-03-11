@@ -77,7 +77,7 @@ class ViewController: NSViewController, DanmakuProtocol {
         ]
         let str = "NSAttributedString"
         let attrStr = NSAttributedString(string: str, attributes: attributes)
-//        for _ in 1..<64 {
+//        for _ in 1..<63 {
 //            self.danmakuView?.appendDanmakuItem(string: attrStr)
 //        }
 //        self.danmakuView?.appendDanmakuItem(string: attrStr)
