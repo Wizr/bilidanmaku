@@ -70,8 +70,6 @@ class DanmakuClient: NSObject {
                 }
                 inputStream.open()
                 outputStream.open()
-                // heart beat
-                Timer.scheduledTimer(timeInterval: 30, target: self, selector: #selector(self.hearBeat), userInfo: nil, repeats: true)
                 // join in room
                 let userId = arc4random()
                 let dataDict: [String: Int] = ["roomid": Int(roomId)!, "uid": Int(userId)]
@@ -79,6 +77,9 @@ class DanmakuClient: NSObject {
                 let dataJson = String(data: dataData, encoding: .utf8)
                 debugPrint(dataJson!)
                 self.sendSocketData(action: .ACTION_JOIN_ROOM, data: dataJson!)
+                // heart beat, server will response with number of users in the room
+                self.hearBeat()
+                Timer.scheduledTimer(timeInterval: 10, target: self, selector: #selector(self.hearBeat), userInfo: nil, repeats: true)
                 
                 // handle danmaku
                 self.running = true
@@ -92,9 +93,7 @@ class DanmakuClient: NSObject {
     
     private func parseDanmakuData() {
         while self.running {
-            debugPrint("waiting.........")
             let totalLen = self.readSocketData32()
-            debugPrint("Reading.........")
             let _ = self.readSocketData32() // skip data
             let actType = self.readSocketData32()
             let d = self.readSocketData32()
@@ -162,7 +161,7 @@ class DanmakuClient: NSObject {
                     }
                 } else if Int32(actType) == ActionType.ACTION_ROOM_USER.rawValue {
                     let userNum = self.readSocketData32()
-                    let msg = Message(type: .MSG_USER_NUM(String(userNum)))
+                    let msg = Message(type: .MSG_USER_NUM(Int(userNum)))
                     self.delegate.handleMsg(msg: msg)
                 } else if Int32(actType) == ActionType.ACTION_ENTER_ROOM.rawValue {
                     let msg = Message(type: .MSG_ENTER_ROOM)

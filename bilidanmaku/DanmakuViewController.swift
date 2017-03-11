@@ -9,40 +9,60 @@
 import Cocoa
 
 class DanmakuViewController: NSViewController, CAAnimationDelegate {
+    @IBOutlet weak var contentView: NSView!
+    @IBOutlet weak var statView: NSView!
+    @IBOutlet weak var userNumTxtFld: NSTextField!
+    @IBOutlet weak var giftNumTxtFld: NSTextField!
+    
     private var sema: DispatchSemaphore?
     private var dispatchQueue: DispatchQueue?
     private let width: Double = 250
-    private var rootLayer: CALayer {
-        return self.view.layer!
-    }
     private var contentLayer: CALayer?
     private var height: CGFloat = 0
+    private var numUser: Int = 0
+    private var numGift: Int = 0
     
     public func initialize() {
         let layer = CALayer()
-        self.view.layer = layer
-        self.view.wantsLayer = true
-        
+        self.contentView.layer = layer
+        self.contentView.wantsLayer = true
         layer.isGeometryFlipped = true
         
         let cntLayer = CALayer()
-        layer.addSublayer(cntLayer)
         cntLayer.frame.origin.y = layer.frame.size.height
+        layer.addSublayer(cntLayer)
+        
+        let statLayer = CALayer()
+        self.statView.layer = statLayer
+        self.statView.wantsLayer = true
+        statLayer.backgroundColor = CGColor(gray: 0, alpha: 0.6)
+        
         self.contentLayer = cntLayer
-        
-        
         self.dispatchQueue = DispatchQueue(label: "danmakuScene")
         self.sema = DispatchSemaphore(value: 1)
+        self.userNumTxtFld.stringValue = String(self.numUser)
+        self.giftNumTxtFld.stringValue = String(self.numGift)
+    }
+    
+    public func setUserNum(num: Int) {
+        self.numUser = num
+        DispatchQueue.main.async {
+            self.userNumTxtFld.stringValue = String(self.numUser)
+        }
+    }
+    
+    public func updateGiftNum(num: Int) {
+        self.numGift += num
+        DispatchQueue.main.async {
+            self.giftNumTxtFld.stringValue = String(self.numGift)
+        }
     }
     
     public func appendDanmakuItem(string: NSAttributedString) {
         DispatchQueue.global().async {
             self.dispatchQueue?.sync() {
-                debugPrint("waiting....")
                 self.sema?.wait()
-                debugPrint("running.....")
                 DispatchQueue.main.sync {
-                    debugPrint("doing.....")
                     self.doAppendDanmakuItem(string: string)
                 }
             }

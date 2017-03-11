@@ -238,11 +238,81 @@
                     <view key="view" autoresizesSubviews="NO" id="byi-9j-TV3">
                         <rect key="frame" x="0.0" y="0.0" width="250" height="270"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="nfY-ul-090">
+                                <rect key="frame" x="0.0" y="24" width="250" height="246"/>
+                            </customView>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="6mh-mw-TfG">
+                                <rect key="frame" x="0.0" y="0.0" width="250" height="24"/>
+                                <subviews>
+                                    <textField horizontalHuggingPriority="1000" verticalHuggingPriority="750" horizontalCompressionResistancePriority="1000" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2B1-vB-Kjb">
+                                        <rect key="frame" x="3" y="3" width="46" height="18"/>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="人数：" id="Gir-Ll-cud">
+                                            <font key="font" size="14" name="STHeitiSC-Light"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Exc-no-ifK">
+                                        <rect key="frame" x="45" y="3" width="82" height="18"/>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="0" id="NgJ-4S-4AS">
+                                            <font key="font" size="14" name="STHeitiSC-Light"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l0V-dS-Hjn">
+                                        <rect key="frame" x="165" y="3" width="82" height="18"/>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="0" id="cJj-9I-c8v">
+                                            <font key="font" size="14" name="STHeitiSC-Light"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <textField horizontalHuggingPriority="1000" verticalHuggingPriority="750" horizontalCompressionResistancePriority="1000" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3xT-7m-KL7">
+                                        <rect key="frame" x="123" y="3" width="46" height="18"/>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="礼物：" id="J1L-X7-VlL">
+                                            <font key="font" size="14" name="STHeitiSC-Light"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="2B1-vB-Kjb" firstAttribute="top" secondItem="6mh-mw-TfG" secondAttribute="top" constant="3" id="0Qr-OA-te5"/>
+                                    <constraint firstAttribute="bottom" secondItem="2B1-vB-Kjb" secondAttribute="bottom" constant="3" id="6al-Op-O7R"/>
+                                    <constraint firstItem="2B1-vB-Kjb" firstAttribute="leading" secondItem="6mh-mw-TfG" secondAttribute="leading" constant="5" id="AZf-el-D8B"/>
+                                    <constraint firstItem="Exc-no-ifK" firstAttribute="leading" secondItem="2B1-vB-Kjb" secondAttribute="trailing" id="LWD-PA-xCa"/>
+                                    <constraint firstItem="3xT-7m-KL7" firstAttribute="leading" secondItem="Exc-no-ifK" secondAttribute="trailing" id="RgF-t8-3hh"/>
+                                    <constraint firstItem="l0V-dS-Hjn" firstAttribute="leading" secondItem="3xT-7m-KL7" secondAttribute="trailing" id="bq5-sO-4pI"/>
+                                    <constraint firstItem="3xT-7m-KL7" firstAttribute="baseline" secondItem="Exc-no-ifK" secondAttribute="baseline" id="hTo-Xa-stf"/>
+                                    <constraint firstItem="l0V-dS-Hjn" firstAttribute="baseline" secondItem="3xT-7m-KL7" secondAttribute="baseline" id="kIQ-e7-NIK"/>
+                                    <constraint firstItem="l0V-dS-Hjn" firstAttribute="width" secondItem="Exc-no-ifK" secondAttribute="width" id="nMh-5f-oIO"/>
+                                    <constraint firstItem="Exc-no-ifK" firstAttribute="baseline" secondItem="2B1-vB-Kjb" secondAttribute="baseline" id="trY-96-Hcn"/>
+                                    <constraint firstAttribute="trailing" secondItem="l0V-dS-Hjn" secondAttribute="trailing" constant="5" id="x8Q-IE-WCQ"/>
+                                </constraints>
+                            </customView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="nfY-ul-090" firstAttribute="top" secondItem="byi-9j-TV3" secondAttribute="top" id="Bia-hO-EMO"/>
+                            <constraint firstAttribute="trailing" secondItem="6mh-mw-TfG" secondAttribute="trailing" id="SXt-sK-0ia"/>
+                            <constraint firstAttribute="trailing" secondItem="nfY-ul-090" secondAttribute="trailing" id="bie-ZR-E9f"/>
+                            <constraint firstItem="6mh-mw-TfG" firstAttribute="leading" secondItem="byi-9j-TV3" secondAttribute="leading" id="g6t-vt-jgr"/>
+                            <constraint firstAttribute="bottom" secondItem="6mh-mw-TfG" secondAttribute="bottom" id="jIO-Hb-MxL"/>
+                            <constraint firstItem="6mh-mw-TfG" firstAttribute="top" secondItem="nfY-ul-090" secondAttribute="bottom" id="lre-MM-NDD"/>
+                            <constraint firstItem="nfY-ul-090" firstAttribute="leading" secondItem="byi-9j-TV3" secondAttribute="leading" id="vk8-71-TmM"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="contentView" destination="nfY-ul-090" id="CSs-XO-UbZ"/>
+                        <outlet property="giftNumTxtFld" destination="l0V-dS-Hjn" id="dCt-dP-pb9"/>
+                        <outlet property="statView" destination="6mh-mw-TfG" id="q2H-6P-bYk"/>
+                        <outlet property="userNumTxtFld" destination="Exc-no-ifK" id="Xld-08-SJM"/>
+                    </connections>
                 </viewController>
                 <customObject id="DAA-mj-4by" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-77" y="1623"/>
+            <point key="canvasLocation" x="-77" y="1626"/>
         </scene>
     </scenes>
 </document>

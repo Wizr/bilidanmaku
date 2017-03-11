@@ -147,8 +147,9 @@ class ViewController: NSViewController, DanmakuProtocol {
             str.append(userStr)
             str.append(msgStr)
             self.danmakuView?.appendDanmakuItem(string: str)
+            self.danmakuView?.updateGiftNum(num: msg.num)
         case .MSG_USER_NUM(let userNum):
-            debugPrint("人数：", userNum)
+            self.danmakuView?.setUserNum(num: userNum)
         case .MSG_WELCOME:
             let welcStr = NSAttributedString(string: "欢迎：", attributes: attrWelcome)
             let msgStr = NSAttributedString(string: "\(msg.uname)", attributes: attrNormal)

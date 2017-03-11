@@ -15,7 +15,7 @@ struct Message {
         case MSG_ROOM_TITLE(String)
         case MSG_DANMU_MSG(String)
         case MSG_GIFT(String)
-        case MSG_USER_NUM(String)
+        case MSG_USER_NUM(Int)
         case MSG_UNKNOWN_JSON_MSG(String)
         case MSG_WELCOME
         case MSG_ENTER_ROOM
