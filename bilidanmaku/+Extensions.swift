@@ -19,3 +19,9 @@ extension Double {
         return CGFloat(self)
     }
 }
+
+extension Data {
+    func toInt32() -> Int32 {
+        return self.withUnsafeBytes { (t: UnsafePointer<Int32>) in t.pointee }
+    }
+}

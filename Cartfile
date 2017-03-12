@@ -1,5 +1,4 @@
 # Alamofire
 github "Alamofire/Alamofire" ~> 4.4
 # socket
-github "IBM-Swift/BlueSocket"
-
+github "robbiehanson/CocoaAsyncSocket" "master"

@@ -6,27 +6,29 @@
 //  Copyright © 2017 Xudong Yang. All rights reserved.
 //
 
+// message type for communicating with outside
+enum MsgType {
+    case MSG_ERROR(String)
+    case MSG_ROOM_ID(String)
+    case MSG_ROOM_TITLE(String)
+    case MSG_DANMU_MSG(String)
+    case MSG_GIFT(String)
+    case MSG_USER_NUM(Int)
+    case MSG_UNKNOWN_JSON_MSG(String)
+    case MSG_WELCOME
+    case MSG_WELCOME_GUARD
+    case MSG_ENTER_ROOM
+}
+
+// vip level
+enum VipLevel {
+    case VIP_NONE
+    case VIP_VIP
+    case VIP_SVIP
+}
+
 // message for passing to delegate
 struct Message {
-    // message type for communicating with outside
-    enum MsgType {
-        case MSG_ERROR(String)
-        case MSG_ROOM_ID(String)
-        case MSG_ROOM_TITLE(String)
-        case MSG_DANMU_MSG(String)
-        case MSG_GIFT(String)
-        case MSG_USER_NUM(Int)
-        case MSG_UNKNOWN_JSON_MSG(String)
-        case MSG_WELCOME
-        case MSG_ENTER_ROOM
-    }
-    // vip level
-    enum VipLevel {
-        case VIP_NONE
-        case VIP_VIP
-        case VIP_SVIP
-    }
-    
     // message type
     var type: MsgType
     // user info

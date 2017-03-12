@@ -10,6 +10,7 @@ import Foundation
 
 class ConfigManager {
     struct DanmakuScene {
+        var showTime: Double = 7
         var width: Double = 250
         var marginInnerH: Double = 3
         var marginInnerV: Double = 0.5

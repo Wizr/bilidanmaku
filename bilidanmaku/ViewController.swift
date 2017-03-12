@@ -39,11 +39,11 @@ class ViewController: NSViewController, DanmakuProtocol {
     private func onConnect() {
         let liveIdStr = self.textFieldLiveId.stringValue
         guard liveIdStr.characters.count > 0,
-            let liveId = Int(liveIdStr)
-            else {
+            let liveId = Int(liveIdStr) else {
                 return
         }
-        debugPrint(liveId)
+        
+        self.danmakuView?.resetStats()
         
         self.textFieldLiveId.isEnabled = false
         self.btnConnect.isEnabled = false
@@ -65,7 +65,7 @@ class ViewController: NSViewController, DanmakuProtocol {
         self.danmakuWindow?.showWindow(self)
         self.danmakuView = self.danmakuWindow?.contentViewController as? DanmakuViewController
         
-        // FIX: 64 danmaku at once
+        // FIXME: 64 danmaku at once
     }
 
     override var representedObject: Any? {
@@ -89,6 +89,8 @@ class ViewController: NSViewController, DanmakuProtocol {
                                        NSFontAttributeName: font]
         let attrWelcome: [String: Any] = [NSForegroundColorAttributeName: NSColor(red:1, green:0.426, blue:0.627, alpha:1),
                                        NSFontAttributeName: font]
+        let attrWelcGuard: [String: Any] = [NSForegroundColorAttributeName: NSColor(red:0.663, green:1, blue:0.388, alpha:1),
+                                          NSFontAttributeName: font]
         let attrAdmin: [String: Any] = [NSForegroundColorAttributeName: NSColor(red:0.708, green:0.59, blue:1, alpha:1),
                                         NSFontAttributeName: font]
         
@@ -138,7 +140,15 @@ class ViewController: NSViewController, DanmakuProtocol {
         case .MSG_USER_NUM(let userNum):
             self.danmakuView?.setUserNum(num: userNum)
         case .MSG_WELCOME:
-            let welcStr = NSAttributedString(string: "欢迎：", attributes: attrWelcome)
+            let welcStr = NSAttributedString(string: "欢迎老爷：", attributes: attrWelcome)
+            let msgStr = NSAttributedString(string: "\(msg.uname)", attributes: attrNormal)
+            
+            let str = NSMutableAttributedString()
+            str.append(welcStr)
+            str.append(msgStr)
+            self.danmakuView?.appendDanmakuItem(string: str)
+        case .MSG_WELCOME_GUARD:
+            let welcStr = NSAttributedString(string: "欢迎舰长：", attributes: attrWelcGuard)
             let msgStr = NSAttributedString(string: "\(msg.uname)", attributes: attrNormal)
             
             let str = NSMutableAttributedString()
@@ -152,4 +162,3 @@ class ViewController: NSViewController, DanmakuProtocol {
         }
     }
 }
-

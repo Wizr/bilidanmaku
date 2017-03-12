@@ -16,8 +16,6 @@ class DanmakuViewController: NSViewController, CAAnimationDelegate {
     @IBOutlet weak var danmakuNumTxtFld: NSTextField!
     @IBOutlet weak var costNumTxtFld: NSTextField!
     
-    private var dispatchQueue: DispatchQueue?
-    private let width: Double = 250
     private var contentLayer: CALayer?
     private var height: CGFloat = 0
     private var numUser: Int = 0
@@ -41,11 +39,13 @@ class DanmakuViewController: NSViewController, CAAnimationDelegate {
         statLayer.backgroundColor = CGColor(gray: 0, alpha: 0.6)
         
         self.contentLayer = cntLayer
-        self.dispatchQueue = DispatchQueue(label: "danmakuScene")
-        self.userNumTxtFld.stringValue = String(self.numUser)
-        self.giftNumTxtFld.stringValue = String(self.numGift)
-        self.danmakuNumTxtFld.stringValue = String(self.numDanmaku)
-        self.costNumTxtFld.stringValue = String(self.numCost)
+    }
+    
+    public func resetStats() {
+        self.userNumTxtFld.stringValue = "0"
+        self.giftNumTxtFld.stringValue = "0"
+        self.danmakuNumTxtFld.stringValue = "0"
+        self.costNumTxtFld.stringValue = "0"
     }
     
     public func setUserNum(num: Int) {
@@ -84,8 +84,9 @@ class DanmakuViewController: NSViewController, CAAnimationDelegate {
         }
     }
     
-    @objc public func doAppendDanmakuItem(string: NSAttributedString) {
-        let layer = DanmakuItem(string: string, showTime: 7)
+    private func doAppendDanmakuItem(string: NSAttributedString) {
+        let showTime = ConfigManager.shared.danmakuScene.showTime
+        let layer = DanmakuItem(string: string, showTime: showTime)
         let height = layer.frame.size.height
         layer.frame.origin.y = self.height
 
@@ -102,7 +103,7 @@ class DanmakuViewController: NSViewController, CAAnimationDelegate {
     }
 }
 
-class DanmakuItem: CALayer, CAAnimationDelegate {
+private class DanmakuItem: CALayer, CAAnimationDelegate {
     init(string: NSAttributedString, showTime: Double) {
         super.init()
         createSubLayer(string: string)
