@@ -111,6 +111,7 @@ class ViewController: NSViewController, DanmakuProtocol {
             str.append(userStr)
             str.append(msgStr)
             self.danmakuView?.appendDanmakuItem(string: str)
+            self.danmakuView?.updateDanmakuNum()
         case .MSG_GIFT(let giftName):
             let giftStr = NSAttributedString(string: "礼物：", attributes: attrGift)
             
@@ -133,6 +134,7 @@ class ViewController: NSViewController, DanmakuProtocol {
             str.append(msgStr)
             self.danmakuView?.appendDanmakuItem(string: str)
             self.danmakuView?.updateGiftNum(num: msg.num)
+            self.danmakuView?.updateCostNum(num: msg.num * msg.price)
         case .MSG_USER_NUM(let userNum):
             self.danmakuView?.setUserNum(num: userNum)
         case .MSG_WELCOME:

@@ -13,6 +13,8 @@ class DanmakuViewController: NSViewController, CAAnimationDelegate {
     @IBOutlet weak var statView: NSView!
     @IBOutlet weak var userNumTxtFld: NSTextField!
     @IBOutlet weak var giftNumTxtFld: NSTextField!
+    @IBOutlet weak var danmakuNumTxtFld: NSTextField!
+    @IBOutlet weak var costNumTxtFld: NSTextField!
     
     private var dispatchQueue: DispatchQueue?
     private let width: Double = 250
@@ -20,6 +22,8 @@ class DanmakuViewController: NSViewController, CAAnimationDelegate {
     private var height: CGFloat = 0
     private var numUser: Int = 0
     private var numGift: Int = 0
+    private var numDanmaku: Int = 0
+    private var numCost: Int = 0
     
     public func initialize() {
         let layer = CALayer()
@@ -40,6 +44,8 @@ class DanmakuViewController: NSViewController, CAAnimationDelegate {
         self.dispatchQueue = DispatchQueue(label: "danmakuScene")
         self.userNumTxtFld.stringValue = String(self.numUser)
         self.giftNumTxtFld.stringValue = String(self.numGift)
+        self.danmakuNumTxtFld.stringValue = String(self.numDanmaku)
+        self.costNumTxtFld.stringValue = String(self.numCost)
     }
     
     public func setUserNum(num: Int) {
@@ -53,6 +59,20 @@ class DanmakuViewController: NSViewController, CAAnimationDelegate {
         self.numGift += num
         DispatchQueue.main.async {
             self.giftNumTxtFld.stringValue = String(self.numGift)
+        }
+    }
+    
+    public func updateDanmakuNum() {
+        self.numDanmaku += 1
+        DispatchQueue.main.async {
+            self.danmakuNumTxtFld.stringValue = String(self.numDanmaku)
+        }
+    }
+    
+    public func updateCostNum(num: Int) {
+        self.numCost += num
+        DispatchQueue.main.async {
+            self.costNumTxtFld.stringValue = String(self.numCost/100)
         }
     }
     

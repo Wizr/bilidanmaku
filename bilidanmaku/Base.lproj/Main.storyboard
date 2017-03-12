@@ -236,17 +236,14 @@
             <objects>
                 <viewController id="656-dv-bM3" customClass="DanmakuViewController" customModule="bilidanmaku" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" autoresizesSubviews="NO" id="byi-9j-TV3">
-                        <rect key="frame" x="0.0" y="0.0" width="250" height="270"/>
+                        <rect key="frame" x="0.0" y="0.0" width="250" height="339"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="nfY-ul-090">
-                                <rect key="frame" x="0.0" y="24" width="250" height="246"/>
-                            </customView>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="6mh-mw-TfG">
-                                <rect key="frame" x="0.0" y="0.0" width="250" height="24"/>
+                                <rect key="frame" x="0.0" y="0.0" width="250" height="45"/>
                                 <subviews>
                                     <textField horizontalHuggingPriority="1000" verticalHuggingPriority="750" horizontalCompressionResistancePriority="1000" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2B1-vB-Kjb">
-                                        <rect key="frame" x="3" y="3" width="46" height="18"/>
+                                        <rect key="frame" x="3" y="24" width="46" height="18"/>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="人数：" id="Gir-Ll-cud">
                                             <font key="font" size="14" name="STHeitiSC-Light"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -254,24 +251,56 @@
                                         </textFieldCell>
                                     </textField>
                                     <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Exc-no-ifK">
-                                        <rect key="frame" x="45" y="3" width="82" height="18"/>
+                                        <rect key="frame" x="45" y="24" width="82" height="18"/>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="0" id="NgJ-4S-4AS">
                                             <font key="font" size="14" name="STHeitiSC-Light"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
                                     </textField>
-                                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l0V-dS-Hjn">
-                                        <rect key="frame" x="165" y="3" width="82" height="18"/>
-                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="0" id="cJj-9I-c8v">
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wdf-df-PwR">
+                                        <rect key="frame" x="123" y="24" width="46" height="18"/>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="弹幕：" id="xcR-rW-5Sp">
+                                            <font key="font" size="14" name="STHeitiSC-Light"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L5y-SP-Fq6">
+                                        <rect key="frame" x="165" y="24" width="82" height="18"/>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="0" id="kbe-HQ-QKm">
                                             <font key="font" size="14" name="STHeitiSC-Light"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
                                     </textField>
                                     <textField horizontalHuggingPriority="1000" verticalHuggingPriority="750" horizontalCompressionResistancePriority="1000" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3xT-7m-KL7">
-                                        <rect key="frame" x="123" y="3" width="46" height="18"/>
+                                        <rect key="frame" x="3" y="3" width="46" height="18"/>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="礼物：" id="J1L-X7-VlL">
+                                            <font key="font" size="14" name="STHeitiSC-Light"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l0V-dS-Hjn">
+                                        <rect key="frame" x="45" y="3" width="82" height="18"/>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="0" id="cJj-9I-c8v">
+                                            <font key="font" size="14" name="STHeitiSC-Light"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7cx-5V-fFD">
+                                        <rect key="frame" x="123" y="3" width="46" height="18"/>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="积分：" id="hhg-t0-0la">
+                                            <font key="font" size="14" name="STHeitiSC-Light"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a42-Mx-EBb">
+                                        <rect key="frame" x="165" y="3" width="82" height="18"/>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="0" id="enN-KB-7DF">
                                             <font key="font" size="14" name="STHeitiSC-Light"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -279,18 +308,31 @@
                                     </textField>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="2B1-vB-Kjb" firstAttribute="top" secondItem="6mh-mw-TfG" secondAttribute="top" constant="3" id="0Qr-OA-te5"/>
-                                    <constraint firstAttribute="bottom" secondItem="2B1-vB-Kjb" secondAttribute="bottom" constant="3" id="6al-Op-O7R"/>
-                                    <constraint firstItem="2B1-vB-Kjb" firstAttribute="leading" secondItem="6mh-mw-TfG" secondAttribute="leading" constant="5" id="AZf-el-D8B"/>
-                                    <constraint firstItem="Exc-no-ifK" firstAttribute="leading" secondItem="2B1-vB-Kjb" secondAttribute="trailing" id="LWD-PA-xCa"/>
-                                    <constraint firstItem="3xT-7m-KL7" firstAttribute="leading" secondItem="Exc-no-ifK" secondAttribute="trailing" id="RgF-t8-3hh"/>
-                                    <constraint firstItem="l0V-dS-Hjn" firstAttribute="leading" secondItem="3xT-7m-KL7" secondAttribute="trailing" id="bq5-sO-4pI"/>
-                                    <constraint firstItem="3xT-7m-KL7" firstAttribute="baseline" secondItem="Exc-no-ifK" secondAttribute="baseline" id="hTo-Xa-stf"/>
-                                    <constraint firstItem="l0V-dS-Hjn" firstAttribute="baseline" secondItem="3xT-7m-KL7" secondAttribute="baseline" id="kIQ-e7-NIK"/>
-                                    <constraint firstItem="l0V-dS-Hjn" firstAttribute="width" secondItem="Exc-no-ifK" secondAttribute="width" id="nMh-5f-oIO"/>
-                                    <constraint firstItem="Exc-no-ifK" firstAttribute="baseline" secondItem="2B1-vB-Kjb" secondAttribute="baseline" id="trY-96-Hcn"/>
-                                    <constraint firstAttribute="trailing" secondItem="l0V-dS-Hjn" secondAttribute="trailing" constant="5" id="x8Q-IE-WCQ"/>
+                                    <constraint firstItem="2B1-vB-Kjb" firstAttribute="top" secondItem="6mh-mw-TfG" secondAttribute="top" constant="3" id="2Ei-Hg-zZW"/>
+                                    <constraint firstItem="L5y-SP-Fq6" firstAttribute="leading" secondItem="wdf-df-PwR" secondAttribute="trailing" id="5Da-Gx-5Fn"/>
+                                    <constraint firstItem="3xT-7m-KL7" firstAttribute="leading" secondItem="2B1-vB-Kjb" secondAttribute="leading" id="8kq-en-nZq"/>
+                                    <constraint firstItem="l0V-dS-Hjn" firstAttribute="baseline" secondItem="3xT-7m-KL7" secondAttribute="baseline" id="9gR-La-Emo"/>
+                                    <constraint firstAttribute="bottom" secondItem="3xT-7m-KL7" secondAttribute="bottom" constant="3" id="9xd-JN-UpI"/>
+                                    <constraint firstItem="a42-Mx-EBb" firstAttribute="width" secondItem="l0V-dS-Hjn" secondAttribute="width" id="CgC-dk-F4c"/>
+                                    <constraint firstAttribute="trailing" secondItem="L5y-SP-Fq6" secondAttribute="trailing" constant="5" id="HhT-2l-mrg"/>
+                                    <constraint firstItem="7cx-5V-fFD" firstAttribute="baseline" secondItem="l0V-dS-Hjn" secondAttribute="baseline" id="InS-Mr-m3X"/>
+                                    <constraint firstAttribute="trailing" secondItem="a42-Mx-EBb" secondAttribute="trailing" constant="5" id="MFc-cy-Tgo"/>
+                                    <constraint firstItem="wdf-df-PwR" firstAttribute="baseline" secondItem="Exc-no-ifK" secondAttribute="baseline" id="MUE-tE-ckl"/>
+                                    <constraint firstItem="Exc-no-ifK" firstAttribute="baseline" secondItem="2B1-vB-Kjb" secondAttribute="baseline" id="Osr-Rn-Scn"/>
+                                    <constraint firstItem="L5y-SP-Fq6" firstAttribute="width" secondItem="Exc-no-ifK" secondAttribute="width" id="TfG-u7-waf"/>
+                                    <constraint firstItem="a42-Mx-EBb" firstAttribute="leading" secondItem="7cx-5V-fFD" secondAttribute="trailing" id="Wmm-Yo-A0S"/>
+                                    <constraint firstItem="l0V-dS-Hjn" firstAttribute="leading" secondItem="3xT-7m-KL7" secondAttribute="trailing" id="XGK-AH-ji7"/>
+                                    <constraint firstItem="7cx-5V-fFD" firstAttribute="leading" secondItem="l0V-dS-Hjn" secondAttribute="trailing" id="YP9-gW-6PL"/>
+                                    <constraint firstItem="Exc-no-ifK" firstAttribute="leading" secondItem="2B1-vB-Kjb" secondAttribute="trailing" id="aTc-kJ-mQm"/>
+                                    <constraint firstItem="3xT-7m-KL7" firstAttribute="top" secondItem="2B1-vB-Kjb" secondAttribute="bottom" constant="3" id="cvd-Tb-W1J"/>
+                                    <constraint firstItem="wdf-df-PwR" firstAttribute="leading" secondItem="Exc-no-ifK" secondAttribute="trailing" id="djX-Qh-uy1"/>
+                                    <constraint firstItem="a42-Mx-EBb" firstAttribute="baseline" secondItem="7cx-5V-fFD" secondAttribute="baseline" id="mYx-Uv-Hgz"/>
+                                    <constraint firstItem="L5y-SP-Fq6" firstAttribute="baseline" secondItem="wdf-df-PwR" secondAttribute="baseline" id="uR8-xt-qVv"/>
+                                    <constraint firstItem="2B1-vB-Kjb" firstAttribute="leading" secondItem="6mh-mw-TfG" secondAttribute="leading" constant="5" id="zAZ-dl-zTe"/>
                                 </constraints>
+                            </customView>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="nfY-ul-090">
+                                <rect key="frame" x="0.0" y="45" width="250" height="294"/>
                             </customView>
                         </subviews>
                         <constraints>
@@ -305,6 +347,8 @@
                     </view>
                     <connections>
                         <outlet property="contentView" destination="nfY-ul-090" id="CSs-XO-UbZ"/>
+                        <outlet property="costNumTxtFld" destination="a42-Mx-EBb" id="l6C-xA-gkH"/>
+                        <outlet property="danmakuNumTxtFld" destination="L5y-SP-Fq6" id="vzD-xw-Khs"/>
                         <outlet property="giftNumTxtFld" destination="l0V-dS-Hjn" id="dCt-dP-pb9"/>
                         <outlet property="statView" destination="6mh-mw-TfG" id="q2H-6P-bYk"/>
                         <outlet property="userNumTxtFld" destination="Exc-no-ifK" id="Xld-08-SJM"/>
@@ -312,7 +356,7 @@
                 </viewController>
                 <customObject id="DAA-mj-4by" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-77" y="1626"/>
+            <point key="canvasLocation" x="-77" y="1660.5"/>
         </scene>
     </scenes>
 </document>

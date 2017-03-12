@@ -35,6 +35,7 @@ struct Message {
     var vip: VipLevel = .VIP_NONE
     // gift info
     var num: Int = 1
+    var price: Int = 0
     
     // other
     init(type: MsgType) {
@@ -42,10 +43,11 @@ struct Message {
     }
     
     // gift
-    init(type: MsgType, uname: String, num: Int) {
+    init(type: MsgType, uname: String, num: Int, price: Int) {
         self.type = type
         self.uname = uname
         self.num = num
+        self.price = price
     }
     
     // danmu message
