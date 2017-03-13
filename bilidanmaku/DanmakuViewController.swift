@@ -42,6 +42,10 @@ class DanmakuViewController: NSViewController, CAAnimationDelegate {
     }
     
     public func resetStats() {
+        self.numUser = 0
+        self.numGift = 0
+        self.numDanmaku = 0
+        self.numCost = 0
         self.userNumTxtFld.stringValue = "0"
         self.giftNumTxtFld.stringValue = "0"
         self.danmakuNumTxtFld.stringValue = "0"
