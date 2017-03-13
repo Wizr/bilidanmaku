@@ -32,4 +32,14 @@ class DanmakuWindowController: NSWindowController {
         // set the window style
         self.window?.backgroundColor = NSColor.clear
     }
+    
+    override func mouseDown(with event: NSEvent) {
+        if event.clickCount == 2 {
+            NSApplication.shared().windows.forEach {
+                if $0.isVisible == false {
+                    $0.makeKeyAndOrderFront(self)
+                }
+            }
+        }
+    }
 }
