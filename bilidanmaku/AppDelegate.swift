@@ -22,5 +22,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
 
+    func applicationShouldHandleReopen(_ sender: NSApplication, hasVisibleWindows flag: Bool) -> Bool {
+        NSApplication.shared().windows.forEach {
+            if $0.isVisible == false {
+                $0.makeKeyAndOrderFront(self)
+            }
+        }
+        return false
+    }
 }
 

@@ -93,8 +93,8 @@
 		9BE1F0A21E63B75900BE595B = {
 			isa = PBXGroup;
 			children = (
-				9B3EC2F01E754CB50011F37B /* CocoaAsyncSocket.framework */,
 				9BC449451E69391C00A526CF /* Alamofire.framework */,
+				9B3EC2F01E754CB50011F37B /* CocoaAsyncSocket.framework */,
 				9BC4494B1E69393000A526CF /* Alamofire.framework.dSYM */,
 				9B3EC2F31E754CC10011F37B /* CocoaAsyncSocket.framework.dSYM */,
 				9BE1F0AD1E63B75A00BE595B /* bilidanmaku */,
