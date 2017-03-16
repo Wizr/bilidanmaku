@@ -130,6 +130,7 @@ private class DanmakuItem: CALayer, CAAnimationDelegate {
     }
     
     func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
+        self.removeAllAnimations()
         self.removeFromSuperlayer()
     }
     

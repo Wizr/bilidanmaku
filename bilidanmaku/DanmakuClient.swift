@@ -19,10 +19,11 @@ enum ActionType: Int {
 }
 
 class DanmakuClient: NSObject {
-    public var delegate: DanmakuProtocol
+    weak public var delegate: DanmakuProtocol?
     private let PROTOCOL_VERSION: Int16 = 1
     private var liveId: String = ""
     var sock: GCDAsyncSocket?
+    var timer: Timer?
     
     init(liveId: Int, delegate: DanmakuProtocol) {
         self.delegate = delegate
@@ -34,16 +35,41 @@ class DanmakuClient: NSObject {
     }
     
     public func disconnectServer() {
+        self.timer?.invalidate()
         self.sock?.disconnect()
+        self.sock = nil
+        self.timer = nil
+    }
+    
+    private func getRoomBasicInfo(liveId: String, completionHandler: @escaping (String, String) -> Void) {
+        let url = URL(string: "https://live.bilibili.com/\(liveId)")!
+        // fetch html
+        Alamofire.request(url).responseString { resp in
+            var roomId = ""
+            var title = ""
+            if let html = resp.value {
+                // search for room id in html
+                guard let roomIdStr = self.getFirstRegexMatch(pattern: "var\\s+roomid\\s+=\\s*(\\d+);", content: html) else {
+                    return
+                }
+                roomId = roomIdStr
+                // search for title in html
+                guard let titleStr = self.getFirstRegexMatch(pattern: "<title>(.*)</title>", content: html) else {
+                    return
+                }
+                title = titleStr
+            }
+            completionHandler(roomId, title)
+        }
     }
     
     public func connectServer() {
         getRoomBasicInfo(liveId: liveId) { roomId, title in
-            self.delegate.handleMsg(msg: Message(type: .MSG_ROOM_ID(roomId)))
-            self.delegate.handleMsg(msg: Message(type: .MSG_ROOM_TITLE(title)))
+            self.delegate?.handleMsg(msg: Message(type: .MSG_ROOM_ID(roomId)))
+            self.delegate?.handleMsg(msg: Message(type: .MSG_ROOM_TITLE(title)))
             
             // fetch room info
-            let url = URL(string: "https://live.bilibili.com/api/player?id=cid:" + roomId)!
+            let url = URL(string: "https://live.bilibili.com/api/player?id=cid:\(roomId)")!
             Alamofire.request(url).responseString { resp in
                 let xml = resp.value
                 guard xml != nil,
@@ -52,7 +78,7 @@ class DanmakuClient: NSObject {
                     let dmPortInt = UInt16(dmPortStr)
                     else {
                         let msg = Message(type: .MSG_ERROR("Error: parsing danmaku server info."))
-                        self.delegate.handleMsg(msg: msg)
+                        self.delegate?.handleMsg(msg: msg)
                         return
                 }
                 debugPrint(dmHostStr, dmPortStr)
@@ -98,7 +124,7 @@ class DanmakuClient: NSObject {
                                       uname: userName,
                                       isadmin: isAdmin,
                                       isvip: isVip, issvip: isSVip)
-                    self.delegate.handleMsg(msg: msg)
+                    self.delegate?.handleMsg(msg: msg)
                 } else if jsonCmdTypeUpper == "SEND_GIFT" {
                     guard let jsonData = jsonObject["data"] as? [String: Any],
                         let giftName = jsonData["giftName"] as? String,
@@ -108,7 +134,7 @@ class DanmakuClient: NSObject {
                             return
                     }
                     let msg = Message(type: .MSG_GIFT(giftName), uname: uname, num: num, price: price)
-                    self.delegate.handleMsg(msg: msg)
+                    self.delegate?.handleMsg(msg: msg)
                 } else if jsonCmdTypeUpper == "WELCOME" || jsonCmdTypeUpper == "WELCOME_GUARD" {
                     guard let jsonData = jsonObject["data"] as? [String: Any],
                         let uname = jsonData["uname"] as? String,
@@ -129,45 +155,23 @@ class DanmakuClient: NSObject {
                                       uname: uname,
                                       isadmin: isAdmin,
                                       isvip: isVip, issvip: isSVip)
-                    self.delegate.handleMsg(msg: msg)
+                    self.delegate?.handleMsg(msg: msg)
                 } else if jsonCmdTypeUpper == "WELCOME_GUARD" {
                     
                 } else {
                     let msg = Message(type: .MSG_UNKNOWN_JSON_MSG(jsonCmdTypeUpper))
-                    self.delegate.handleMsg(msg: msg)
+                    self.delegate?.handleMsg(msg: msg)
                 }
             }
         } else if Int(actType) == ActionType.ACTION_ROOM_USER.rawValue {
             let userNum = frameData.toInt32().bigEndian
             let msg = Message(type: .MSG_USER_NUM(Int(userNum)))
-            self.delegate.handleMsg(msg: msg)
+            self.delegate?.handleMsg(msg: msg)
         } else if Int(actType) == ActionType.ACTION_ENTER_ROOM.rawValue {
             let msg = Message(type: .MSG_ENTER_ROOM)
-            self.delegate.handleMsg(msg: msg)
+            self.delegate?.handleMsg(msg: msg)
         } else {
             debugPrint([UInt8](frameData))
-        }
-    }
-    
-    private func getRoomBasicInfo(liveId: String, completionHandler: @escaping (String, String) -> Void) {
-        let url = "https://live.bilibili.com"
-        // fetch html
-        Alamofire.request(URL(string: url)!.appendingPathComponent(liveId)).responseString{ response in
-            var roomId = ""
-            var title = ""
-            if let html = response.value {
-                // search for room id in html
-                guard let roomIdStr = self.getFirstRegexMatch(pattern: "var\\s+roomid\\s+=\\s*(\\d+);", content: html) else {
-                    return
-                }
-                roomId = roomIdStr
-                // search for title in html
-                guard let titleStr = self.getFirstRegexMatch(pattern: "<title>(.*)</title>", content: html) else {
-                    return
-                }
-                title = titleStr
-            }
-            completionHandler(roomId, title)
         }
     }
     
@@ -214,7 +218,7 @@ extension DanmakuClient: GCDAsyncSocketDelegate {
             // heart beat, server will response with number of users in the room
             self.heartBeat()
             DispatchQueue.main.async { // any other solution?
-                Timer.scheduledTimer(timeInterval: 10, target: self, selector: #selector(self.heartBeat), userInfo: nil, repeats: true)
+                self.timer = Timer.scheduledTimer(timeInterval: 10, target: self, selector: #selector(self.heartBeat), userInfo: nil, repeats: true)
             }
             
             sock.readData(toLength: 4, withTimeout: -1, tag: 10)
