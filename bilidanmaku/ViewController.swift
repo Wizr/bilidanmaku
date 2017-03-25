@@ -31,6 +31,8 @@ class ViewController: NSViewController, DanmakuProtocol {
     private func onDisconnect() {
         self.danmakuClient?.disconnectServer()
         self.danmakuClient = nil
+        self.danmakuView?.clearDanmakuItems()
+        
         self.textFieldLiveId.isEnabled = true
         self.btnConnect.isEnabled = true
         self.btnDisconnect.isEnabled = false
