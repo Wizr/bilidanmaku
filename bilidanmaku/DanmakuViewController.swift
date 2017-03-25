@@ -42,10 +42,16 @@ class DanmakuViewController: NSViewController, CAAnimationDelegate {
     }
     
     public func clearDanmakuItems() {
-        self.contentLayer?.sublayers?.forEach {
-            $0.removeAllAnimations()
-            $0.removeFromSuperlayer()
-        }
+        self.contentLayer?.removeFromSuperlayer()
+        
+        let layer = self.contentView.layer!
+        
+        let cntLayer = CALayer()
+        cntLayer.frame.origin.y = layer.frame.size.height
+        layer.addSublayer(cntLayer)
+        
+        self.contentLayer = cntLayer
+        self.height = 0
     }
     
     public func resetStats() {
