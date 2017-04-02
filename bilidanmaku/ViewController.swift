@@ -12,10 +12,11 @@ class ViewController: NSViewController, DanmakuProtocol {
     @IBOutlet weak var textFieldLiveId: NSTextField!
     @IBOutlet weak var btnConnect: NSButton!
     @IBOutlet weak var btnDisconnect: NSButton!
+    @IBOutlet var txtLog: NSTextView!
     private var danmakuClient: DanmakuClient?
     private var danmakuWindow: DanmakuWindowController?
     private var danmakuView: DanmakuViewController?
-
+    
     @IBAction func onConnectClicked(_ sender: NSButton) {
         self.onConnect()
     }
@@ -50,7 +51,7 @@ class ViewController: NSViewController, DanmakuProtocol {
         self.textFieldLiveId.isEnabled = false
         self.btnConnect.isEnabled = false
         self.btnDisconnect.isEnabled = true
-
+        
         self.danmakuClient = DanmakuClient(liveId: liveId, delegate: self)
         self.danmakuClient!.connectServer()
     }
@@ -58,7 +59,7 @@ class ViewController: NSViewController, DanmakuProtocol {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         self.textFieldLiveId.formatter = IntegerOnlyFormatter()
         self.btnDisconnect.isEnabled = false
@@ -69,38 +70,62 @@ class ViewController: NSViewController, DanmakuProtocol {
         
         // FIXME: 64 danmaku at once
     }
-
+    
     override var representedObject: Any? {
         didSet {
-        // Update the view, if already loaded.
+            // Update the view, if already loaded.
         }
     }
-
+    
     // DanmakuProtocol
     func handleMsg(msg: Message) {
-        let fontSize: CGFloat = 15
-        let font = NSFontManager.shared().font(withFamily: "Heiti SC",
-                                               traits: NSFontTraitMask.boldFontMask,
-                                               weight: 0,
-                                               size: fontSize) ?? NSFont.systemFont(ofSize: fontSize)
+        let fontSize1: CGFloat = 15
+        let font1 = NSFontManager.shared().font(withFamily: "Heiti SC",
+                                                traits: NSFontTraitMask.boldFontMask,
+                                                weight: 0,
+                                                size: fontSize1) ?? NSFont.systemFont(ofSize: fontSize1)
+        // white
         let attrNormal: [String: Any] = [NSForegroundColorAttributeName: NSColor(red:1, green:1, blue:1, alpha:1),
-                                         NSFontAttributeName: font]
+                                         NSFontAttributeName: font1]
+        // orange
         let attrGift: [String: Any] = [NSForegroundColorAttributeName: NSColor(red:1, green:0.709, blue:0.134, alpha:1),
-                                         NSFontAttributeName: font]
+                                       NSFontAttributeName: font1]
+        // blue
         let attrUser: [String: Any] = [NSForegroundColorAttributeName: NSColor(red:0.31, green:0.757, blue:0.914, alpha:1),
-                                       NSFontAttributeName: font]
+                                       NSFontAttributeName: font1]
+        // red
         let attrWelcome: [String: Any] = [NSForegroundColorAttributeName: NSColor(red:1, green:0.426, blue:0.627, alpha:1),
-                                       NSFontAttributeName: font]
+                                          NSFontAttributeName: font1]
+        // green
         let attrWelcGuard: [String: Any] = [NSForegroundColorAttributeName: NSColor(red:0.663, green:1, blue:0.388, alpha:1),
-                                          NSFontAttributeName: font]
+                                            NSFontAttributeName: font1]
+        // purple
         let attrAdmin: [String: Any] = [NSForegroundColorAttributeName: NSColor(red:0.708, green:0.59, blue:1, alpha:1),
-                                        NSFontAttributeName: font]
+                                        NSFontAttributeName: font1]
+        
+        let fontSize2: CGFloat = 13
+        let font2 = NSFontManager.shared().font(withFamily: "Heiti SC",
+                                                traits: NSFontTraitMask.unboldFontMask,
+                                                weight: 0,
+                                                size: fontSize2) ?? NSFont.systemFont(ofSize: fontSize2)
+        let attrLogTitle: [String: Any] = [NSForegroundColorAttributeName: NSColor(red:0.31, green:0.757, blue:0.914, alpha:1),
+                                           NSFontAttributeName: font2]
+        let attrLogContent: [String: Any] = [NSForegroundColorAttributeName: NSColor(red:0.3, green:0.3, blue:0.3, alpha:1),
+                                             NSFontAttributeName: font2]
         
         switch msg.type {
         case .MSG_ROOM_ID(let roomId):
-            debugPrint("房号: ", roomId)
+            let title = NSAttributedString(string: "房间号: ", attributes: attrLogTitle)
+            let content = NSAttributedString(string: "\(roomId)\n", attributes: attrLogContent)
+            self.txtLog.textStorage?.append(title)
+            self.txtLog.textStorage?.append(content)
+            self.txtLog.scrollToEndOfDocument(self)
         case .MSG_ROOM_TITLE(let title):
-            debugPrint("标题: ", title)
+            let titl = NSAttributedString(string: "标题: ", attributes: attrLogTitle)
+            let content = NSAttributedString(string: "\(title)\n", attributes: attrLogContent)
+            self.txtLog.textStorage?.append(titl)
+            self.txtLog.textStorage?.append(content)
+            self.txtLog.scrollToEndOfDocument(self)
         case .MSG_DANMU_MSG(let danmu):
             var userStr: NSAttributedString
             if msg.isadmin {
