@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class DanmakuViewController: NSViewController, CAAnimationDelegate {
+class DanmakuViewController: NSViewController {
     @IBOutlet weak var contentView: NSView!
     @IBOutlet weak var statView: NSView!
     @IBOutlet weak var userNumTxtFld: NSTextField!
@@ -16,6 +16,7 @@ class DanmakuViewController: NSViewController, CAAnimationDelegate {
     @IBOutlet weak var danmakuNumTxtFld: NSTextField!
     @IBOutlet weak var costNumTxtFld: NSTextField!
     
+    private var scrollLayer: CAScrollLayer?
     private var contentLayer: CALayer?
     private var height: CGFloat = 0
     private var numUser: Int = 0
@@ -29,29 +30,35 @@ class DanmakuViewController: NSViewController, CAAnimationDelegate {
         self.contentView.wantsLayer = true
         layer.isGeometryFlipped = true
         
-        let cntLayer = CALayer()
-        cntLayer.frame.origin.y = layer.frame.size.height
-        layer.addSublayer(cntLayer)
+        self.resetContentLayer()
         
         let statLayer = CALayer()
         self.statView.layer = statLayer
         self.statView.wantsLayer = true
         statLayer.backgroundColor = CGColor(gray: 0, alpha: 0.6)
-        
-        self.contentLayer = cntLayer
     }
     
-    public func clearDanmakuItems() {
-        self.contentLayer?.removeFromSuperlayer()
+    private func resetContentLayer() {
+        self.scrollLayer?.removeFromSuperlayer()
         
         let layer = self.contentView.layer!
         
         let cntLayer = CALayer()
         cntLayer.frame.origin.y = layer.frame.size.height
-        layer.addSublayer(cntLayer)
         
+        let scrollLayer = CAScrollLayer()
+        scrollLayer.frame = layer.frame
+        scrollLayer.scrollMode = kCAScrollVertically
+        scrollLayer.addSublayer(cntLayer)
+        layer.addSublayer(scrollLayer)
+        
+        self.scrollLayer = scrollLayer
         self.contentLayer = cntLayer
         self.height = 0
+    }
+    
+    public func clearDanmakuItems() {
+        self.resetContentLayer()
     }
     
     public func resetStats() {
@@ -109,13 +116,11 @@ class DanmakuViewController: NSViewController, CAAnimationDelegate {
 
         self.contentLayer?.addSublayer(layer)
         
-        let anim = CABasicAnimation(keyPath: "position.y")
-        anim.duration = 1
-        anim.byValue = -height
-        anim.isRemovedOnCompletion = false
-        anim.fillMode = kCAFillModeForwards
+        CATransaction.begin()
+        CATransaction.setAnimationDuration(1)
+        self.contentLayer?.position.y -= height
+        CATransaction.commit()
         
-        self.contentLayer?.add(anim, forKey: nil)
         self.height += height
     }
 }
