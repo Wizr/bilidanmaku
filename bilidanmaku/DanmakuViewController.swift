@@ -126,10 +126,10 @@ class DanmakuViewController: NSViewController {
 }
 
 private class DanmakuItem: CALayer, CAAnimationDelegate {
-    init(string: NSAttributedString, showTime: Double) {
+    init(string: NSAttributedString, showTime: Int) {
         super.init()
         createSubLayer(string: string)
-        Timer.scheduledTimer(timeInterval: showTime, target: self, selector: #selector(destroySelf), userInfo: nil, repeats: false)
+        Timer.scheduledTimer(timeInterval: TimeInterval(showTime), target: self, selector: #selector(destroySelf), userInfo: nil, repeats: false)
     }
     
     required init?(coder aDecoder: NSCoder) {

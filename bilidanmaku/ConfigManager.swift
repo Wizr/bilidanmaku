@@ -10,7 +10,7 @@ import Foundation
 
 class ConfigManager {
     struct DanmakuScene {
-        var showTime: Double = 7
+        var showTime: Int = 7
         var width: Double = 250
         var marginInnerH: Double = 3
         var marginInnerV: Double = 0.5
@@ -39,11 +39,6 @@ class ConfigManager {
     
     static let shared = ConfigManager()
     
-    private var _danmakuScene = DanmakuScene()
-    public var danmakuScene: DanmakuScene {
-        get {
-            return self._danmakuScene
-        }
-    }
+    public var danmakuScene = DanmakuScene()
     private init() {}
 }

@@ -9,10 +9,12 @@
 import Cocoa
 
 class ViewController: NSViewController, DanmakuProtocol {
-    @IBOutlet weak var textFieldLiveId: NSTextField!
+    @IBOutlet weak var txtLiveId: NSTextField!
+    @IBOutlet weak var txtLog: NSTextView!
+    @IBOutlet weak var txtShowTime: NSTextField!
     @IBOutlet weak var btnConnect: NSButton!
     @IBOutlet weak var btnDisconnect: NSButton!
-    @IBOutlet var txtLog: NSTextView!
+    @IBOutlet weak var sldShowTime: NSSlider!
     private var danmakuClient: DanmakuClient?
     private var danmakuWindow: DanmakuWindowController?
     private var danmakuView: DanmakuViewController?
@@ -29,18 +31,25 @@ class ViewController: NSViewController, DanmakuProtocol {
         self.onConnect()
     }
     
+    @IBAction func onShowTimeChanged(_ sender: NSSlider) {
+        let showTime = sender.doubleValue.rounded().toInt()
+        self.txtShowTime.integerValue = showTime
+        self.sldShowTime.integerValue = showTime
+        ConfigManager.shared.danmakuScene.showTime = showTime
+    }
+    
     private func onDisconnect() {
         self.danmakuClient?.disconnectServer()
         self.danmakuClient = nil
         self.danmakuView?.clearDanmakuItems()
         
-        self.textFieldLiveId.isEnabled = true
+        self.txtLiveId.isEnabled = true
         self.btnConnect.isEnabled = true
         self.btnDisconnect.isEnabled = false
     }
     
     private func onConnect() {
-        let liveIdStr = self.textFieldLiveId.stringValue
+        let liveIdStr = self.txtLiveId.stringValue
         guard liveIdStr.characters.count > 0,
             let liveId = Int(liveIdStr) else {
                 return
@@ -48,7 +57,7 @@ class ViewController: NSViewController, DanmakuProtocol {
         
         self.danmakuView?.resetStats()
         
-        self.textFieldLiveId.isEnabled = false
+        self.txtLiveId.isEnabled = false
         self.btnConnect.isEnabled = false
         self.btnDisconnect.isEnabled = true
         
@@ -61,7 +70,9 @@ class ViewController: NSViewController, DanmakuProtocol {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-        self.textFieldLiveId.formatter = IntegerOnlyFormatter()
+        self.txtLiveId.formatter = IntegerOnlyFormatter()
+        self.txtShowTime.integerValue = ConfigManager.shared.danmakuScene.showTime
+        self.sldShowTime.integerValue = ConfigManager.shared.danmakuScene.showTime
         self.btnDisconnect.isEnabled = false
         
         self.danmakuWindow = self.storyboard?.instantiateController(withIdentifier: "DanmakuWindow") as? DanmakuWindowController

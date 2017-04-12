@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11762"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="12118"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -182,6 +182,63 @@
                                         <view key="view" id="TX7-Zp-EuI">
                                             <rect key="frame" x="10" y="33" width="525" height="271"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <subviews>
+                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kC7-wM-irk">
+                                                    <rect key="frame" x="18" y="234" width="137" height="17"/>
+                                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="弹幕停留时长（秒）：" id="tip-uK-w1M">
+                                                        <font key="font" metaFont="system"/>
+                                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                    </textFieldCell>
+                                                </textField>
+                                                <slider verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="qox-ZT-5jC">
+                                                    <rect key="frame" x="159" y="231" width="348" height="24"/>
+                                                    <sliderCell key="cell" state="on" alignment="left" maxValue="20" doubleValue="10" tickMarkPosition="below" numberOfTickMarks="19" allowsTickMarkValuesOnly="YES" sliderType="linear" id="KON-Z4-ckV"/>
+                                                    <connections>
+                                                        <action selector="onShowTimeChanged:" target="XfG-lQ-9wD" id="Fy9-iL-pEh"/>
+                                                    </connections>
+                                                </slider>
+                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ykk-eK-IMr">
+                                                    <rect key="frame" x="159" y="207" width="13" height="17"/>
+                                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" enabled="NO" sendsActionOnEndEditing="YES" title="0" id="vqj-4J-BBf">
+                                                        <font key="font" metaFont="system"/>
+                                                        <color key="textColor" name="disabledControlTextColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                    </textFieldCell>
+                                                </textField>
+                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bnB-UG-edG">
+                                                    <rect key="frame" x="311" y="207" width="44" height="17"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="40" id="WrE-jD-uWR"/>
+                                                    </constraints>
+                                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Label" id="jDI-wk-JtO">
+                                                        <font key="font" metaFont="system"/>
+                                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                    </textFieldCell>
+                                                </textField>
+                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HiY-dt-W8s">
+                                                    <rect key="frame" x="487" y="207" width="20" height="17"/>
+                                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" enabled="NO" sendsActionOnEndEditing="YES" alignment="right" title="20" id="PCm-Jh-a6r">
+                                                        <font key="font" metaFont="system"/>
+                                                        <color key="textColor" name="disabledControlTextColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                    </textFieldCell>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Ykk-eK-IMr" firstAttribute="centerY" secondItem="HiY-dt-W8s" secondAttribute="centerY" id="5cu-tZ-0Ri"/>
+                                                <constraint firstItem="kC7-wM-irk" firstAttribute="top" secondItem="TX7-Zp-EuI" secondAttribute="top" constant="20" symbolic="YES" id="CGF-cr-JaM"/>
+                                                <constraint firstItem="bnB-UG-edG" firstAttribute="centerX" secondItem="qox-ZT-5jC" secondAttribute="centerX" id="EDW-Sh-6Dg"/>
+                                                <constraint firstItem="HiY-dt-W8s" firstAttribute="top" secondItem="qox-ZT-5jC" secondAttribute="bottom" constant="8" symbolic="YES" id="PRx-Lb-Mq0"/>
+                                                <constraint firstItem="bnB-UG-edG" firstAttribute="centerY" secondItem="HiY-dt-W8s" secondAttribute="centerY" id="QxP-qB-G0I"/>
+                                                <constraint firstItem="Ykk-eK-IMr" firstAttribute="leading" secondItem="qox-ZT-5jC" secondAttribute="leading" id="R8j-Eq-cEb"/>
+                                                <constraint firstAttribute="trailing" secondItem="qox-ZT-5jC" secondAttribute="trailing" constant="20" symbolic="YES" id="kcz-T3-bXD"/>
+                                                <constraint firstItem="qox-ZT-5jC" firstAttribute="leading" secondItem="kC7-wM-irk" secondAttribute="trailing" constant="8" symbolic="YES" id="lAC-jS-x0u"/>
+                                                <constraint firstItem="HiY-dt-W8s" firstAttribute="trailing" secondItem="qox-ZT-5jC" secondAttribute="trailing" id="lIt-rG-4lh"/>
+                                                <constraint firstItem="qox-ZT-5jC" firstAttribute="centerY" secondItem="kC7-wM-irk" secondAttribute="centerY" id="pyM-Yn-Fgt"/>
+                                                <constraint firstItem="kC7-wM-irk" firstAttribute="leading" secondItem="TX7-Zp-EuI" secondAttribute="leading" constant="20" symbolic="YES" id="w3T-Ph-gIk"/>
+                                            </constraints>
                                         </view>
                                     </tabViewItem>
                                 </tabViewItems>
@@ -205,8 +262,10 @@
                     <connections>
                         <outlet property="btnConnect" destination="TaJ-QZ-aA0" id="huH-yX-A6W"/>
                         <outlet property="btnDisconnect" destination="QOu-nh-zoO" id="JRT-ck-FY7"/>
-                        <outlet property="textFieldLiveId" destination="UyD-6H-hKL" id="lKm-oh-tpK"/>
+                        <outlet property="sldShowTime" destination="qox-ZT-5jC" id="qOl-cx-vyv"/>
+                        <outlet property="txtLiveId" destination="UyD-6H-hKL" id="MzI-88-i6J"/>
                         <outlet property="txtLog" destination="fAB-6s-EhX" id="K0J-gT-JuG"/>
+                        <outlet property="txtShowTime" destination="bnB-UG-edG" id="ZgY-37-kGB"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>

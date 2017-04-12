@@ -18,6 +18,10 @@ extension Double {
     func toCGFloat() -> CGFloat {
         return CGFloat(self)
     }
+    
+    func toInt() -> Int {
+        return Int(self)
+    }
 }
 
 extension Data {
