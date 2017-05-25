@@ -44,17 +44,26 @@ class DanmakuClient: NSObject {
     private func getRoomBasicInfo(liveId: String, completionHandler: @escaping (String, String) -> Void) {
         let url = URL(string: "https://live.bilibili.com/\(liveId)")!
         // fetch html
-        Alamofire.request(url).responseString { resp in
+        Alamofire.request(url).responseString { (resp: DataResponse<String>) in
+            if resp.result.isFailure {
+                let msg = Message(type: .MSG_ERROR("Fetch room info failed"))
+                self.delegate?.handleMsg(msg: msg)
+                return
+            }
             var roomId = ""
             var title = ""
-            if let html = resp.value {
+            if let html = resp.result.value {
                 // search for room id in html
                 guard let roomIdStr = self.getFirstRegexMatch(pattern: "var\\s+roomid\\s+=\\s*(\\d+);", content: html) else {
+                    let msg = Message(type: .MSG_ERROR("Fetch room info failed"))
+                    self.delegate?.handleMsg(msg: msg)
                     return
                 }
                 roomId = roomIdStr
                 // search for title in html
                 guard let titleStr = self.getFirstRegexMatch(pattern: "<title>(.*)</title>", content: html) else {
+                    let msg = Message(type: .MSG_ERROR("Fetch room info failed"))
+                    self.delegate?.handleMsg(msg: msg)
                     return
                 }
                 title = titleStr

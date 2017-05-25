@@ -195,8 +195,11 @@ class ViewController: NSViewController, DanmakuProtocol {
             self.danmakuView?.appendDanmakuItem(string: str)
         case .MSG_UNKNOWN_JSON_MSG(let cmd):
             debugPrint("未知：", cmd)
+        case .MSG_ERROR(let error):
+            debugPrint("错误: \(error)")
+            self.onDisconnect()
         default:
-            debugPrint("default")
+            debugPrint("default: \(msg.type)")
         }
     }
 }
