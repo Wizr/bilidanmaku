@@ -16,7 +16,6 @@ class DanmakuViewController: NSViewController {
     @IBOutlet weak var danmakuNumTxtFld: NSTextField!
     @IBOutlet weak var costNumTxtFld: NSTextField!
     
-    private var scrollLayer: CAScrollLayer?
     private var contentLayer: CALayer?
     private var height: CGFloat = 0
     private var numUser: Int = 0
@@ -28,7 +27,6 @@ class DanmakuViewController: NSViewController {
         let layer = CALayer()
         self.contentView.layer = layer
         self.contentView.wantsLayer = true
-        layer.isGeometryFlipped = true
         
         self.resetContentLayer()
         
@@ -39,20 +37,14 @@ class DanmakuViewController: NSViewController {
     }
     
     private func resetContentLayer() {
-        self.scrollLayer?.removeFromSuperlayer()
+        self.contentLayer?.removeFromSuperlayer()
         
         let layer = self.contentView.layer!
         
         let cntLayer = CALayer()
-        cntLayer.frame.origin.y = layer.frame.size.height
+        cntLayer.isGeometryFlipped = true
+        layer.addSublayer(cntLayer)
         
-        let scrollLayer = CAScrollLayer()
-        scrollLayer.frame = layer.frame
-        scrollLayer.scrollMode = kCAScrollVertically
-        scrollLayer.addSublayer(cntLayer)
-        layer.addSublayer(scrollLayer)
-        
-        self.scrollLayer = scrollLayer
         self.contentLayer = cntLayer
         self.height = 0
     }
@@ -118,7 +110,7 @@ class DanmakuViewController: NSViewController {
         
         CATransaction.begin()
         CATransaction.setAnimationDuration(1)
-        self.contentLayer?.position.y -= height
+        self.contentLayer?.position.y += height
         CATransaction.commit()
         
         self.height += height
